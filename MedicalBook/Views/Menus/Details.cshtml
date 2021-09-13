@@ -1,0 +1,50 @@
+﻿@model MedicalBook.DbContext.Menu
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Menu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.m_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.m_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.m_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.m_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.m_url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.m_url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.m_level)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.m_level)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.m_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

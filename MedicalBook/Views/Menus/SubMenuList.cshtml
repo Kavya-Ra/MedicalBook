@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MedicalBook.DbContext.SubMenu_1>
+
+@{
+    ViewBag.Title = "SubMenuList";
+}
+
+<h2>SubMenuList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.sm1_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sm1_desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sm1_url)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sm1_level)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Menu.m_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.sm1_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sm1_desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sm1_url)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sm1_level)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Menu.m_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.sm1_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.sm1_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.sm1_id })
+        </td>
+    </tr>
+}
+
+</table>

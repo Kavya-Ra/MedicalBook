@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1b888ddd434c4644b7e1b2fbb73f7f9e" Name="Diagram1">
+        <EntityTypeShape EntityType="MedicalBookModel.author" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalBookModel.cart_item" Width="1.5" PointX="7.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalBookModel.discount" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalBookModel.Menu" Width="1.5" PointX="10.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalBookModel.order_details" Width="1.5" PointX="8.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalBookModel.order_items" Width="1.5" PointX="10.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalBookModel.payment_details" Width="1.5" PointX="6" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalBookModel.product" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalBookModel.product_category" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalBookModel.product_image" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalBookModel.product_inventory" Width="1.5" PointX="3" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalBookModel.product_maincategory" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalBookModel.productcategory_image" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalBookModel.publisher" Width="1.5" PointX="3" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalBookModel.Role" Width="1.5" PointX="0.75" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalBookModel.shopping_session" Width="1.5" PointX="5.25" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalBookModel.SubMenu_1" Width="1.5" PointX="13" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalBookModel.SubMenu_2" Width="1.5" PointX="15.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalBookModel.user" Width="1.5" PointX="3" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalBookModel.user_address" Width="1.5" PointX="5.25" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalBookModel.user_payment" Width="1.5" PointX="5.25" PointY="31.875" IsExpanded="true" />
+        <AssociationConnector Association="MedicalBookModel.FK_product_author" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalBookModel.FK_cart_item_product" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalBookModel.FK_cart_item_shopping_session" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalBookModel.FK_product_discount" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalBookModel.FK_SubMenu_1_Menu" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalBookModel.FK_order_details_payment_details" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalBookModel.FK_order_details_user" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalBookModel.FK_order_items_order_details" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalBookModel.FK_order_items_product" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalBookModel.FK_product_product_category" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalBookModel.FK_product_product_inventory" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalBookModel.FK_product_publisher" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalBookModel.FK_product_category_product_maincategory" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalBookModel.FK_productcategory_image_product_maincategory" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalBookModel.FK_shopping_session_user" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalBookModel.FK_SubMenu_2_SubMenu_1" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalBookModel.FK_user_address_user" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalBookModel.FK_user_payment_user" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalBookModel.UserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

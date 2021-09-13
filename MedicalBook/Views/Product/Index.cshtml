@@ -1,0 +1,82 @@
+﻿@model IEnumerable<MedicalBook.DbContext.product_maincategory>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.mpc_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mpc_desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mpc_createdby)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mpc_createddate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mpc_modifiedby)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mpc_modifieddate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mpc_deletedby)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mpc_deleteddate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mpc_isdeleted)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.mpc_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mpc_desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mpc_createdby)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mpc_createddate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mpc_modifiedby)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mpc_modifieddate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mpc_deletedby)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mpc_deleteddate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mpc_isdeleted)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.mpc_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.mpc_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.mpc_id })
+        </td>
+    </tr>
+}
+
+</table>

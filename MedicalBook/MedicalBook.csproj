@@ -1,0 +1,949 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E2213D8A-E85C-418A-9D4A-8455D4B7DFE3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MedicalBook</RootNamespace>
+    <AssemblyName>MedicalBook</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44398</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MenusController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="DbContext\author.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\cart_item.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\discount.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\GetCategoryWiseImage_Result.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\GetProductByCategoryId_Result.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\GetProductBySearch_Result.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\GetProductWithImageList_Result.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\MedicalBook.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicalBook.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\MedicalBook.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\MedicalBook.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicalBook.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\Menu.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\order_details.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\order_items.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\payment_details.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\product.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\productcategory_image.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\product_category.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\product_image.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\product_inventory.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\product_maincategory.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\publisher.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\Role.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\shopping_session.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\SubMenu_1.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\SubMenu_2.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\user.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\user_address.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\user_payment.cs">
+      <DependentUpon>MedicalBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\CategoryImageViewModel.cs" />
+    <Compile Include="ViewModel\HomeViewModel.cs" />
+    <Compile Include="ViewModel\MenuListViewModel.cs" />
+    <Compile Include="ViewModel\MenuViewModel.cs" />
+    <Compile Include="ViewModel\ProductCategoryViewModel.cs" />
+    <Compile Include="ViewModel\ProductImageViewModel.cs" />
+    <Compile Include="ViewModel\ProductMainCategoryViewModel.cs" />
+    <Compile Include="ViewModel\ProductViewModel.cs" />
+    <Compile Include="ViewModel\SubMenu2ViewModel.cs" />
+    <Compile Include="ViewModel\SubMenuViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="DbContext\MedicalBook.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MedicalBook.edmx</DependentUpon>
+      <LastGenOutput>MedicalBook.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DbContext\MedicalBook.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MedicalBook.edmx</DependentUpon>
+      <LastGenOutput>MedicalBook.cs</LastGenOutput>
+    </Content>
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="PageScript\layout_script.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <EntityDeploy Include="DbContext\MedicalBook.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MedicalBook.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DbContext\MedicalBook.edmx.diagram">
+      <DependentUpon>MedicalBook.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Theme\assets\ajax\login.html" />
+    <Content Include="Theme\assets\ajax\newsletter.html" />
+    <Content Include="Theme\assets\css\demo1.min.css" />
+    <Content Include="Theme\assets\css\style.min.css" />
+    <Content Include="Theme\assets\fonts\wolmart87d5.svg" />
+    <Content Include="Theme\assets\images\agents\1-100x100.png" />
+    <Content Include="Theme\assets\images\agents\2-100x100.png" />
+    <Content Include="Theme\assets\images\agents\3-100x100.png" />
+    <Content Include="Theme\assets\images\banner.jpg" />
+    <Content Include="Theme\assets\images\blog\1.jpg" />
+    <Content Include="Theme\assets\images\blog\2.jpg" />
+    <Content Include="Theme\assets\images\blog\2cols\1.jpg" />
+    <Content Include="Theme\assets\images\blog\2cols\2.jpg" />
+    <Content Include="Theme\assets\images\blog\2cols\3.jpg" />
+    <Content Include="Theme\assets\images\blog\2cols\4.jpg" />
+    <Content Include="Theme\assets\images\blog\2cols\5.jpg" />
+    <Content Include="Theme\assets\images\blog\2cols\6.jpg" />
+    <Content Include="Theme\assets\images\blog\2cols\7.jpg" />
+    <Content Include="Theme\assets\images\blog\2cols\8.jpg" />
+    <Content Include="Theme\assets\images\blog\3.jpg" />
+    <Content Include="Theme\assets\images\blog\4.jpg" />
+    <Content Include="Theme\assets\images\blog\5.jpg" />
+    <Content Include="Theme\assets\images\blog\6.jpg" />
+    <Content Include="Theme\assets\images\blog\7.jpg" />
+    <Content Include="Theme\assets\images\blog\classic\1.jpg" />
+    <Content Include="Theme\assets\images\blog\classic\2.jpg" />
+    <Content Include="Theme\assets\images\blog\classic\3.jpg" />
+    <Content Include="Theme\assets\images\blog\classic\4.jpg" />
+    <Content Include="Theme\assets\images\blog\classic\5.jpg" />
+    <Content Include="Theme\assets\images\blog\classic\6.jpg" />
+    <Content Include="Theme\assets\images\blog\sidebar\1.jpg" />
+    <Content Include="Theme\assets\images\blog\sidebar\2.jpg" />
+    <Content Include="Theme\assets\images\blog\sidebar\3.jpg" />
+    <Content Include="Theme\assets\images\blog\sidebar\4.jpg" />
+    <Content Include="Theme\assets\images\blog\sidebar\5.jpg" />
+    <Content Include="Theme\assets\images\blog\sidebar\6.jpg" />
+    <Content Include="Theme\assets\images\blog\single\1.jpg" />
+    <Content Include="Theme\assets\images\blog\single\1.png" />
+    <Content Include="Theme\assets\images\blog\single\2.jpg" />
+    <Content Include="Theme\assets\images\blog\single\2.png" />
+    <Content Include="Theme\assets\images\blog\single\3.jpg" />
+    <Content Include="Theme\assets\images\blog\single\4.jpg" />
+    <Content Include="Theme\assets\images\blog\single\5.jpg" />
+    <Content Include="Theme\assets\images\brands\category\1.png" />
+    <Content Include="Theme\assets\images\brands\category\2.png" />
+    <Content Include="Theme\assets\images\brands\category\3.png" />
+    <Content Include="Theme\assets\images\brands\category\4.png" />
+    <Content Include="Theme\assets\images\brands\category\5.png" />
+    <Content Include="Theme\assets\images\brands\category\6.png" />
+    <Content Include="Theme\assets\images\brands\category\7.png" />
+    <Content Include="Theme\assets\images\cart\product-1.jpg" />
+    <Content Include="Theme\assets\images\cart\product-2.jpg" />
+    <Content Include="Theme\assets\images\categories\banners\banner-1.jpg" />
+    <Content Include="Theme\assets\images\categories\banners\banner-2.jpg" />
+    <Content Include="Theme\assets\images\categories\banners\banner-3.jpg" />
+    <Content Include="Theme\assets\images\categories\banners\banner-4.jpg" />
+    <Content Include="Theme\assets\images\categories\banners\banner-5.jpg" />
+    <Content Include="Theme\assets\images\categories\banners\banner-6.jpg" />
+    <Content Include="Theme\assets\images\categories\banners\banner-7.jpg" />
+    <Content Include="Theme\assets\images\categories\category-1.jpg" />
+    <Content Include="Theme\assets\images\categories\category-10.jpg" />
+    <Content Include="Theme\assets\images\categories\category-11.jpg" />
+    <Content Include="Theme\assets\images\categories\category-12.jpg" />
+    <Content Include="Theme\assets\images\categories\category-13.jpg" />
+    <Content Include="Theme\assets\images\categories\category-14.jpg" />
+    <Content Include="Theme\assets\images\categories\category-15.jpg" />
+    <Content Include="Theme\assets\images\categories\category-16.jpg" />
+    <Content Include="Theme\assets\images\categories\category-17.jpg" />
+    <Content Include="Theme\assets\images\categories\category-18.jpg" />
+    <Content Include="Theme\assets\images\categories\category-19.jpg" />
+    <Content Include="Theme\assets\images\categories\category-2.jpg" />
+    <Content Include="Theme\assets\images\categories\category-20.jpg" />
+    <Content Include="Theme\assets\images\categories\category-21.jpg" />
+    <Content Include="Theme\assets\images\categories\category-3.jpg" />
+    <Content Include="Theme\assets\images\categories\category-4.jpg" />
+    <Content Include="Theme\assets\images\categories\category-5.jpg" />
+    <Content Include="Theme\assets\images\categories\category-6.jpg" />
+    <Content Include="Theme\assets\images\categories\category-7.jpg" />
+    <Content Include="Theme\assets\images\categories\category-8.jpg" />
+    <Content Include="Theme\assets\images\categories\category-9.jpg" />
+    <Content Include="Theme\assets\images\cta\cta-1.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\banners\2.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\banners\3.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\banners\4.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\banners\5.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\blogs\1.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\blogs\2.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\blogs\3.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\blogs\4.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\brands\1.png" />
+    <Content Include="Theme\assets\images\demos\demo1\brands\10.png" />
+    <Content Include="Theme\assets\images\demos\demo1\brands\11.png" />
+    <Content Include="Theme\assets\images\demos\demo1\brands\12.png" />
+    <Content Include="Theme\assets\images\demos\demo1\brands\2.png" />
+    <Content Include="Theme\assets\images\demos\demo1\brands\3.png" />
+    <Content Include="Theme\assets\images\demos\demo1\brands\4.png" />
+    <Content Include="Theme\assets\images\demos\demo1\brands\5.png" />
+    <Content Include="Theme\assets\images\demos\demo1\brands\6.png" />
+    <Content Include="Theme\assets\images\demos\demo1\brands\7.png" />
+    <Content Include="Theme\assets\images\demos\demo1\brands\8.png" />
+    <Content Include="Theme\assets\images\demos\demo1\brands\9.png" />
+    <Content Include="Theme\assets\images\demos\demo1\categories\1-1.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\categories\1-2.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\categories\2-1.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\categories\2-2.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\categories\2-3.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\categories\2-4.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\categories\2-5.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\categories\2-6.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\categories\3-1.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\categories\3-2.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\1-1-600x675.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\1-1-800x900.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\1-2-600x675.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\1-2-800x900.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\1-3-600x675.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\1-3-800x900.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\1-4-600x675.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\1-4-800x900.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\2-1-600x675.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\2-1-800x900.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\2-1.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\2-2-600x675.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\2-2-800x900.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\2-2.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\2-3-600x675.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\2-3-800x900.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\2-3.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\2-4-600x675.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\2-4-800x900.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\2-4.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\2-5.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\2-6.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\2-7.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\2-8.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\2-9.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\3-1-1.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\3-1-2.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\3-10.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\3-2.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\3-3.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\3-4-1.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\3-4-2.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\3-5.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\3-6-1.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\3-6-2.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\3-7.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\3-8-1.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\3-8-2.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\3-9.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\4-1.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\4-2-1.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\4-2-2.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\4-3.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\4-4-1.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\4-4-2.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\4-5-1.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\4-5-2.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\4-6.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\4-7.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\4-8.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\5-1-1.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\5-1-2.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\5-2-1.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\5-2-2.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\5-3.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\5-4.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\5-5.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\5-6.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\5-7.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\5-8.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\6-1.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\6-2-1.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\6-2-2.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\6-3-1.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\6-3-2.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\6-4.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\6-5.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\6-6.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\6-7.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\6-8-1.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\6-8-2.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\7-1.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\7-2.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\7-3.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\7-4.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\7-5.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\7-6.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\7-7.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\products\7-8.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\sliders\men.png" />
+    <Content Include="Theme\assets\images\demos\demo1\sliders\shoes.png" />
+    <Content Include="Theme\assets\images\demos\demo1\sliders\skate.png" />
+    <Content Include="Theme\assets\images\demos\demo1\sliders\slide-1.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\sliders\slide-2.jpg" />
+    <Content Include="Theme\assets\images\demos\demo1\sliders\slide-3.jpg" />
+    <Content Include="Theme\assets\images\flags\eng.png" />
+    <Content Include="Theme\assets\images\flags\fra.png" />
+    <Content Include="Theme\assets\images\icons\favicon.png" />
+    <Content Include="Theme\assets\images\instagram\instagram-1.jpg" />
+    <Content Include="Theme\assets\images\instagram\instagram-10.jpg" />
+    <Content Include="Theme\assets\images\instagram\instagram-11.jpg" />
+    <Content Include="Theme\assets\images\instagram\instagram-12.jpg" />
+    <Content Include="Theme\assets\images\instagram\instagram-2.jpg" />
+    <Content Include="Theme\assets\images\instagram\instagram-3.jpg" />
+    <Content Include="Theme\assets\images\instagram\instagram-4.jpg" />
+    <Content Include="Theme\assets\images\instagram\instagram-5.jpg" />
+    <Content Include="Theme\assets\images\instagram\instagram-6.jpg" />
+    <Content Include="Theme\assets\images\instagram\instagram-7.jpg" />
+    <Content Include="Theme\assets\images\instagram\instagram-8.jpg" />
+    <Content Include="Theme\assets\images\instagram\instagram-9.jpg" />
+    <Content Include="Theme\assets\images\logo.png" />
+    <Content Include="Theme\assets\images\logo_footer.png" />
+    <Content Include="Theme\assets\images\menu\banner-2.jpg" />
+    <Content Include="Theme\assets\images\menu\banner-3.jpg" />
+    <Content Include="Theme\assets\images\menu\banner-4.jpg" />
+    <Content Include="Theme\assets\images\menu\banner-5.jpg" />
+    <Content Include="Theme\assets\images\menu\banner-6.jpg" />
+    <Content Include="Theme\assets\images\newsletter-1.jpg" />
+    <Content Include="Theme\assets\images\newsletter-2.jpg" />
+    <Content Include="Theme\assets\images\pages\404.png" />
+    <Content Include="Theme\assets\images\pages\about_us\1.jpg" />
+    <Content Include="Theme\assets\images\pages\about_us\1.png" />
+    <Content Include="Theme\assets\images\pages\about_us\2.jpg" />
+    <Content Include="Theme\assets\images\pages\about_us\2.png" />
+    <Content Include="Theme\assets\images\pages\about_us\3.jpg" />
+    <Content Include="Theme\assets\images\pages\about_us\3.png" />
+    <Content Include="Theme\assets\images\pages\about_us\4.jpg" />
+    <Content Include="Theme\assets\images\pages\about_us\4.png" />
+    <Content Include="Theme\assets\images\pages\about_us\5.jpg" />
+    <Content Include="Theme\assets\images\pages\about_us\6.jpg" />
+    <Content Include="Theme\assets\images\pages\about_us\7.jpg" />
+    <Content Include="Theme\assets\images\pages\become\1.jpg" />
+    <Content Include="Theme\assets\images\pages\become\2.jpg" />
+    <Content Include="Theme\assets\images\pages\coming\logo.png" />
+    <Content Include="Theme\assets\images\payment.png" />
+    <Content Include="Theme\assets\images\products\accordion\1-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\accordion\2-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\accordion\3-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\accordion\4-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\banner-1.jpg" />
+    <Content Include="Theme\assets\images\products\banner-2.jpg" />
+    <Content Include="Theme\assets\images\products\brand\brand-1.jpg" />
+    <Content Include="Theme\assets\images\products\brand\brand-2.jpg" />
+    <Content Include="Theme\assets\images\products\brand\brand-3.jpg" />
+    <Content Include="Theme\assets\images\products\brand\brand-4.jpg" />
+    <Content Include="Theme\assets\images\products\brand\brand-5.jpg" />
+    <Content Include="Theme\assets\images\products\brand\brand-6.jpg" />
+    <Content Include="Theme\assets\images\products\default\1-1.jpg" />
+    <Content Include="Theme\assets\images\products\default\1-2.jpg" />
+    <Content Include="Theme\assets\images\products\default\1-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\default\2-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\default\2.jpg" />
+    <Content Include="Theme\assets\images\products\default\3-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\default\3.jpg" />
+    <Content Include="Theme\assets\images\products\default\4-1.jpg" />
+    <Content Include="Theme\assets\images\products\default\4-2.jpg" />
+    <Content Include="Theme\assets\images\products\default\4-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\default\5-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\default\5.jpg" />
+    <Content Include="Theme\assets\images\products\default\6-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\default\6.jpg" />
+    <Content Include="Theme\assets\images\products\default\7-1.jpg" />
+    <Content Include="Theme\assets\images\products\default\7-2.jpg" />
+    <Content Include="Theme\assets\images\products\default\8.jpg" />
+    <Content Include="Theme\assets\images\products\default\bought-1.jpg" />
+    <Content Include="Theme\assets\images\products\default\bought-2.jpg" />
+    <Content Include="Theme\assets\images\products\default\bought-3.jpg" />
+    <Content Include="Theme\assets\images\products\default\review-img-1-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\default\review-img-1.jpg" />
+    <Content Include="Theme\assets\images\products\default\review-img-2-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\default\review-img-2.jpg" />
+    <Content Include="Theme\assets\images\products\default\review-img-3-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\default\review-img-3.jpg" />
+    <Content Include="Theme\assets\images\products\elements\1.jpg" />
+    <Content Include="Theme\assets\images\products\elements\2.jpg" />
+    <Content Include="Theme\assets\images\products\elements\3.jpg" />
+    <Content Include="Theme\assets\images\products\elements\4-1.jpg" />
+    <Content Include="Theme\assets\images\products\elements\4-2.jpg" />
+    <Content Include="Theme\assets\images\products\elements\va-4-1.jpg" />
+    <Content Include="Theme\assets\images\products\elements\va-4-2.jpg" />
+    <Content Include="Theme\assets\images\products\extended\1-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\extended\1.jpg" />
+    <Content Include="Theme\assets\images\products\extended\2-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\extended\2.jpg" />
+    <Content Include="Theme\assets\images\products\extended\3-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\extended\3.jpg" />
+    <Content Include="Theme\assets\images\products\extended\4-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\featured\1-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\featured\2-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\featured\3-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\featured\4-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\featured\5-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\featured\6-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\gallery\1-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\gallery\2-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\gallery\3-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\gallery\4-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\grid\1-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\grid\2-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\grid\3-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\grid\4-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\masonry\1-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\masonry\2-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\masonry\3-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\masonry\4-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\masonry\5-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\masonry\6-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\masonry\7-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\popup\1-103x116.jpg" />
+    <Content Include="Theme\assets\images\products\popup\1-440x494.jpg" />
+    <Content Include="Theme\assets\images\products\popup\1-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\popup\2-103x116.jpg" />
+    <Content Include="Theme\assets\images\products\popup\2-440x494.jpg" />
+    <Content Include="Theme\assets\images\products\popup\2-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\popup\3-103x116.jpg" />
+    <Content Include="Theme\assets\images\products\popup\3-440x494.jpg" />
+    <Content Include="Theme\assets\images\products\popup\3-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\popup\4-103x116.jpg" />
+    <Content Include="Theme\assets\images\products\popup\4-440x494.jpg" />
+    <Content Include="Theme\assets\images\products\popup\4-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\product-nav-next.jpg" />
+    <Content Include="Theme\assets\images\products\product-nav-prev.jpg" />
+    <Content Include="Theme\assets\images\products\section\1-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\section\2-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\section\3-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\section\4-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\sticky\1-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\sticky\10-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\sticky\11-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\sticky\12-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\sticky\2-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\sticky\3-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\sticky\4-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\sticky\5-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\sticky\6-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\sticky\7-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\sticky\8-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\sticky\9-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\swatch\1-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\swatch\10-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\swatch\11-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\swatch\12-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\swatch\13-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\swatch\14-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\swatch\2-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\swatch\3-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\swatch\4-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\swatch\5-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\swatch\6-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\swatch\7-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\swatch\8-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\swatch\9-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\variable\1-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\variable\2-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\variable\3-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\variable\4-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\vendor-banner.jpg" />
+    <Content Include="Theme\assets\images\products\vendor-logo.jpg" />
+    <Content Include="Theme\assets\images\products\vertical_thumb\1-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\vertical_thumb\2-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\vertical_thumb\3-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\vertical_thumb\4-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\video-banner-610x300.jpg" />
+    <Content Include="Theme\assets\images\products\video\1-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\video\2-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\video\3-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\video\4-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\without\1-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\without\2-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\without\3-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\without\4-800x900.jpg" />
+    <Content Include="Theme\assets\images\products\without\5-800x900.jpg" />
+    <Content Include="Theme\assets\images\shop\1.jpg" />
+    <Content Include="Theme\assets\images\shop\10.jpg" />
+    <Content Include="Theme\assets\images\shop\11-1.jpg" />
+    <Content Include="Theme\assets\images\shop\11-2.jpg" />
+    <Content Include="Theme\assets\images\shop\12.jpg" />
+    <Content Include="Theme\assets\images\shop\13.jpg" />
+    <Content Include="Theme\assets\images\shop\14.jpg" />
+    <Content Include="Theme\assets\images\shop\15.jpg" />
+    <Content Include="Theme\assets\images\shop\16.jpg" />
+    <Content Include="Theme\assets\images\shop\17.jpg" />
+    <Content Include="Theme\assets\images\shop\18.jpg" />
+    <Content Include="Theme\assets\images\shop\19-1.jpg" />
+    <Content Include="Theme\assets\images\shop\19-2.jpg" />
+    <Content Include="Theme\assets\images\shop\2-1.jpg" />
+    <Content Include="Theme\assets\images\shop\2-2.jpg" />
+    <Content Include="Theme\assets\images\shop\20.jpg" />
+    <Content Include="Theme\assets\images\shop\3.jpg" />
+    <Content Include="Theme\assets\images\shop\4.jpg" />
+    <Content Include="Theme\assets\images\shop\5.jpg" />
+    <Content Include="Theme\assets\images\shop\6.jpg" />
+    <Content Include="Theme\assets\images\shop\7-1.jpg" />
+    <Content Include="Theme\assets\images\shop\7-2.jpg" />
+    <Content Include="Theme\assets\images\shop\8.jpg" />
+    <Content Include="Theme\assets\images\shop\9.jpg" />
+    <Content Include="Theme\assets\images\shop\banner1.jpg" />
+    <Content Include="Theme\assets\images\shop\banner2.jpg" />
+    <Content Include="Theme\assets\images\shop\banner3.jpg" />
+    <Content Include="Theme\assets\images\vendor\brand\1-100x100.png" />
+    <Content Include="Theme\assets\images\vendor\brand\1-150x150.jpg" />
+    <Content Include="Theme\assets\images\vendor\brand\1.jpg" />
+    <Content Include="Theme\assets\images\vendor\brand\2-100x100.png" />
+    <Content Include="Theme\assets\images\vendor\brand\2-150x150.jpg" />
+    <Content Include="Theme\assets\images\vendor\brand\2.jpg" />
+    <Content Include="Theme\assets\images\vendor\brand\3-150x150.jpg" />
+    <Content Include="Theme\assets\images\vendor\brand\3.jpg" />
+    <Content Include="Theme\assets\images\vendor\brand\4-150x150.jpg" />
+    <Content Include="Theme\assets\images\vendor\brand\4.jpg" />
+    <Content Include="Theme\assets\images\vendor\brand\5-150x150.jpg" />
+    <Content Include="Theme\assets\images\vendor\brand\5.jpg" />
+    <Content Include="Theme\assets\images\vendor\brand\6-150x150.jpg" />
+    <Content Include="Theme\assets\images\vendor\brand\6.jpg" />
+    <Content Include="Theme\assets\images\vendor\dokan\1.jpg" />
+    <Content Include="Theme\assets\images\vendor\dokan\2.jpg" />
+    <Content Include="Theme\assets\images\vendor\dokan\3.jpg" />
+    <Content Include="Theme\assets\images\vendor\dokan\4.jpg" />
+    <Content Include="Theme\assets\images\vendor\dokan\5.jpg" />
+    <Content Include="Theme\assets\images\vendor\dokan\6.jpg" />
+    <Content Include="Theme\assets\images\vendor\element\banner\1.jpg" />
+    <Content Include="Theme\assets\images\vendor\element\banner\2.jpg" />
+    <Content Include="Theme\assets\images\vendor\element\banner\3.jpg" />
+    <Content Include="Theme\assets\images\vendor\element\banner\4.jpg" />
+    <Content Include="Theme\assets\images\vendor\element\product\1.jpg" />
+    <Content Include="Theme\assets\images\vendor\element\product\10.jpg" />
+    <Content Include="Theme\assets\images\vendor\element\product\11.jpg" />
+    <Content Include="Theme\assets\images\vendor\element\product\12.jpg" />
+    <Content Include="Theme\assets\images\vendor\element\product\2.jpg" />
+    <Content Include="Theme\assets\images\vendor\element\product\3.jpg" />
+    <Content Include="Theme\assets\images\vendor\element\product\4.jpg" />
+    <Content Include="Theme\assets\images\vendor\element\product\5.jpg" />
+    <Content Include="Theme\assets\images\vendor\element\product\6.jpg" />
+    <Content Include="Theme\assets\images\vendor\element\product\7.jpg" />
+    <Content Include="Theme\assets\images\vendor\element\product\8.jpg" />
+    <Content Include="Theme\assets\images\vendor\element\product\9.jpg" />
+    <Content Include="Theme\assets\images\vendor\wcfm\1.jpg" />
+    <Content Include="Theme\assets\images\vendor\wcfm\avatar.png" />
+    <Content Include="Theme\assets\images\vendor\wcfm\write.jpg" />
+    <Content Include="Theme\assets\images\vendor\wcmp\1.jpg" />
+    <Content Include="Theme\assets\images\vendor\wcmp\2.jpg" />
+    <Content Include="Theme\assets\images\vendor\wcmp\3.jpg" />
+    <Content Include="Theme\assets\images\vendor\wcmp\4.jpg" />
+    <Content Include="Theme\assets\images\vendor\wcmp\5.jpg" />
+    <Content Include="Theme\assets\images\vendor\wcmp\6.jpg" />
+    <Content Include="Theme\assets\images\vendor\wcmp\7.jpg" />
+    <Content Include="Theme\assets\js\main.min.js" />
+    <Content Include="Theme\assets\js\webfont.js" />
+    <Content Include="Theme\assets\vendor\animate\animate.min.css" />
+    <Content Include="Theme\assets\vendor\fontawesome-free\css\all.min.css" />
+    <Content Include="Theme\assets\vendor\fontawesome-free\webfonts\fa-brands-400.svg" />
+    <Content Include="Theme\assets\vendor\fontawesome-free\webfonts\fa-regular-400.svg" />
+    <Content Include="Theme\assets\vendor\fontawesome-free\webfonts\fa-solid-900.svg" />
+    <Content Include="Theme\assets\vendor\imagesloaded\imagesloaded.pkgd.min.js" />
+    <Content Include="Theme\assets\vendor\isotope\isotope.pkgd.min.js" />
+    <Content Include="Theme\assets\vendor\jquery.count-to\jquery.count-to.min.js" />
+    <Content Include="Theme\assets\vendor\jquery.countdown\jquery.countdown.min.js" />
+    <Content Include="Theme\assets\vendor\jquery.gmap\jquery.gmap.min.js" />
+    <Content Include="Theme\assets\vendor\jquery.plugin\jquery.plugin.min.js" />
+    <Content Include="Theme\assets\vendor\jquery\jquery.min.js" />
+    <Content Include="Theme\assets\vendor\magnific-popup\jquery.magnific-popup.min.js" />
+    <Content Include="Theme\assets\vendor\magnific-popup\magnific-popup.min.css" />
+    <Content Include="Theme\assets\vendor\nouislider\nouislider.min.css" />
+    <Content Include="Theme\assets\vendor\nouislider\nouislider.min.js" />
+    <Content Include="Theme\assets\vendor\owl-carousel\owl.carousel.min.css" />
+    <Content Include="Theme\assets\vendor\owl-carousel\owl.carousel.min.js" />
+    <Content Include="Theme\assets\vendor\parallax\parallax.min.js" />
+    <Content Include="Theme\assets\vendor\photoswipe\default-skin\default-skin.min.css" />
+    <Content Include="Theme\assets\vendor\photoswipe\default-skin\default-skin.png" />
+    <Content Include="Theme\assets\vendor\photoswipe\default-skin\default-skin.svg" />
+    <Content Include="Theme\assets\vendor\photoswipe\default-skin\preloader.gif" />
+    <Content Include="Theme\assets\vendor\photoswipe\photoswipe-ui-default.min.js" />
+    <Content Include="Theme\assets\vendor\photoswipe\photoswipe.min.css" />
+    <Content Include="Theme\assets\vendor\photoswipe\photoswipe.min.js" />
+    <Content Include="Theme\assets\vendor\skrollr\skrollr.min.js" />
+    <Content Include="Theme\assets\vendor\sticky\sticky.min.js" />
+    <Content Include="Theme\assets\vendor\threesixty-degree\360-degree-riewer.min.css" />
+    <Content Include="Theme\assets\vendor\threesixty-degree\threesixty.min.js" />
+    <Content Include="Theme\assets\vendor\zoom\jquery.zoom.min.js" />
+    <Content Include="Theme\assets\video\memory-of-a-woman.mp4" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Menus\Create.cshtml" />
+    <Content Include="Views\Menus\Delete.cshtml" />
+    <Content Include="Views\Menus\Details.cshtml" />
+    <Content Include="Views\Menus\Edit.cshtml" />
+    <Content Include="Views\Menus\Index.cshtml" />
+    <Content Include="Views\Menus\CreateSubmenu1.cshtml" />
+    <Content Include="Views\Menus\SubMenuList.cshtml" />
+    <Content Include="Views\Menus\CreateSubMenu2.cshtml" />
+    <Content Include="Views\Menus\SubMenu2List.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Delete.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\CreateProductCategory.cshtml" />
+    <Content Include="Views\Product\ProductCategoryList.cshtml" />
+    <Content Include="Views\Product\ProductInventory.cshtml" />
+    <Content Include="Views\Product\ProductInventoryList.cshtml" />
+    <Content Include="Views\Product\ProductDiscount.cshtml" />
+    <Content Include="Views\Product\ProductDiscountList.cshtml" />
+    <Content Include="Views\Product\CreateProduct.cshtml" />
+    <Content Include="Views\Product\CreateAuthor.cshtml" />
+    <Content Include="Views\Product\AuthorList.cshtml" />
+    <Content Include="Views\Product\CreatePublisher.cshtml" />
+    <Content Include="Views\Product\PublisherList.cshtml" />
+    <Content Include="Views\Product\ProductList.cshtml" />
+    <Content Include="Views\Product\Search.cshtml" />
+    <Content Include="Theme\assets\fonts\wolmart87d5.eot" />
+    <Content Include="Theme\assets\fonts\wolmart87d5.ttf" />
+    <Content Include="Theme\assets\fonts\wolmart87d5.woff" />
+    <Content Include="Theme\assets\vendor\fontawesome-free\webfonts\fa-brands-400.eot" />
+    <Content Include="Theme\assets\vendor\fontawesome-free\webfonts\fa-brands-400.ttf" />
+    <Content Include="Theme\assets\vendor\fontawesome-free\webfonts\fa-brands-400.woff" />
+    <Content Include="Theme\assets\vendor\fontawesome-free\webfonts\fa-brands-400.woff2" />
+    <Content Include="Theme\assets\vendor\fontawesome-free\webfonts\fa-brands-400d41d.eot" />
+    <Content Include="Theme\assets\vendor\fontawesome-free\webfonts\fa-regular-400.eot" />
+    <Content Include="Theme\assets\vendor\fontawesome-free\webfonts\fa-regular-400.ttf" />
+    <Content Include="Theme\assets\vendor\fontawesome-free\webfonts\fa-regular-400.woff" />
+    <Content Include="Theme\assets\vendor\fontawesome-free\webfonts\fa-regular-400.woff2" />
+    <Content Include="Theme\assets\vendor\fontawesome-free\webfonts\fa-regular-400d41d.eot" />
+    <Content Include="Theme\assets\vendor\fontawesome-free\webfonts\fa-solid-900.eot" />
+    <Content Include="Theme\assets\vendor\fontawesome-free\webfonts\fa-solid-900.ttf" />
+    <Content Include="Theme\assets\vendor\fontawesome-free\webfonts\fa-solid-900.woff" />
+    <Content Include="Theme\assets\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
+    <Content Include="Theme\assets\vendor\fontawesome-free\webfonts\fa-solid-900d41d.eot" />
+    <Content Include="Views\Product\ProductCategoryImage.cshtml" />
+    <Content Include="Views\Product\ProductCategoryView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Api\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+    <Folder Include="UploadedFiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50364</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44398/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

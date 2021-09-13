@@ -1,0 +1,69 @@
+﻿@model IEnumerable<MedicalBook.DbContext.publisher>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.pub_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pub_createdby)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pub_createddate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pub_modifiedby)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pub_modifieddate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pub_deletedby)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pub_deleteddate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pub_isdeleted)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.pub_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pub_createdby)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pub_createddate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pub_modifiedby)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pub_modifieddate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pub_deletedby)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pub_deleteddate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pub_isdeleted)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.pub_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.pub_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.pub_id })
+        </td>
+    </tr>
+}
+
+</table>

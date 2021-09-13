@@ -1,0 +1,100 @@
+﻿@model IEnumerable<MedicalBook.ViewModel.ProductViewModel>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.p_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_edition)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_isbn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.author_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.publisher_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.inventory_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.discount_id)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.p_id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.p_name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.p_desc)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.p_year)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.p_edition)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.p_isbn)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.author_id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.publisher_id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.p_price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.category_id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.inventory_id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.discount_id)
+    </td>
+    <td>
+        @foreach (var item2 in item.Product_Images_list)
+        {
+            <img src="@Url.Content(item2.p_image)" width="200" />
+        }
+
+    </td> 
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+    </td>
+</tr>
+}
+
+</table>

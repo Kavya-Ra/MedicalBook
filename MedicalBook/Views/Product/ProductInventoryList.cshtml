@@ -1,0 +1,69 @@
+﻿@model IEnumerable<MedicalBook.DbContext.product_inventory>
+
+<p>
+    @Html.ActionLink("Create New", "ProductInventory")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.pi_quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pi_createdby)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pi_createddate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pi_modifiedby)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pi_modifieddate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pi_deletedby)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pi_deleteddate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pi_isdeleted)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.pi_quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pi_createdby)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pi_createddate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pi_modifiedby)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pi_modifieddate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pi_deletedby)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pi_deleteddate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pi_isdeleted)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.pi_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.pi_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.pi_id })
+        </td>
+    </tr>
+}
+
+</table>

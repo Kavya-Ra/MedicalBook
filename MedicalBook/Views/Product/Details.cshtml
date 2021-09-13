@@ -1,0 +1,91 @@
+﻿@model MedicalBook.DbContext.product_maincategory
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>product_maincategory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.mpc_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mpc_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mpc_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mpc_desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mpc_createdby)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mpc_createdby)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mpc_createddate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mpc_createddate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mpc_modifiedby)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mpc_modifiedby)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mpc_modifieddate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mpc_modifieddate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mpc_deletedby)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mpc_deletedby)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mpc_deleteddate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mpc_deleteddate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mpc_isdeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mpc_isdeleted)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.mpc_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

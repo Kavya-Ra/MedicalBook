@@ -1,0 +1,69 @@
+﻿@model IEnumerable<MedicalBook.DbContext.author>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.au_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.au_createdby)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.au_createddate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.au_modifiedby)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.au_modifieddate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.au_deletedby)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.au_deleteddate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.au_isdeleted)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.au_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.au_createdby)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.au_createddate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.au_modifiedby)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.au_modifieddate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.au_deletedby)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.au_deleteddate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.au_isdeleted)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.au_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.au_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.au_id })
+        </td>
+    </tr>
+}
+
+</table>

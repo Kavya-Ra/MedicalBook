@@ -1,0 +1,1949 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MedicalBookModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="author">
+          <Key>
+            <PropertyRef Name="au_id" />
+          </Key>
+          <Property Name="au_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="au_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="au_createdby" Type="int" Nullable="false" />
+          <Property Name="au_createddate" Type="datetime" Nullable="false" />
+          <Property Name="au_modifiedby" Type="int" Nullable="false" />
+          <Property Name="au_modifieddate" Type="datetime" Nullable="false" />
+          <Property Name="au_deletedby" Type="int" Nullable="false" />
+          <Property Name="au_deleteddate" Type="datetime" Nullable="false" />
+          <Property Name="au_isdeleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cart_item">
+          <Key>
+            <PropertyRef Name="ci_id" />
+          </Key>
+          <Property Name="ci_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ci_sessionid" Type="int" Nullable="false" />
+          <Property Name="ci_productid" Type="int" Nullable="false" />
+          <Property Name="ci_quantity" Type="int" Nullable="false" />
+          <Property Name="ci_createdby" Type="int" Nullable="false" />
+          <Property Name="ci_createddate" Type="datetime" Nullable="false" />
+          <Property Name="ci_modifiedby" Type="int" Nullable="false" />
+          <Property Name="ci_modifieddate" Type="datetime" Nullable="false" />
+          <Property Name="ci_deletedby" Type="int" Nullable="false" />
+          <Property Name="ci_deleteddate" Type="datetime" Nullable="false" />
+          <Property Name="ci_isdeleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="discount">
+          <Key>
+            <PropertyRef Name="dis_id" />
+          </Key>
+          <Property Name="dis_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dis_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dis_desc" Type="varchar(max)" Nullable="false" />
+          <Property Name="dis_percentage" Type="int" Nullable="false" />
+          <Property Name="dis_active" Type="int" Nullable="false" />
+          <Property Name="dis_createdby" Type="int" Nullable="false" />
+          <Property Name="dis_createddate" Type="datetime" Nullable="false" />
+          <Property Name="dis_modifiedby" Type="int" Nullable="false" />
+          <Property Name="dis_modifieddate" Type="datetime" Nullable="false" />
+          <Property Name="dis_deletedby" Type="int" Nullable="false" />
+          <Property Name="dis_deleteddate" Type="datetime" Nullable="false" />
+          <Property Name="dis_isdeleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="m_id" />
+          </Key>
+          <Property Name="m_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="m_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="m_desc" Type="varchar" MaxLength="50" />
+          <Property Name="m_url" Type="varchar(max)" Nullable="false" />
+          <Property Name="m_level" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="order_details">
+          <Key>
+            <PropertyRef Name="od_id" />
+          </Key>
+          <Property Name="od_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="od_userid" Type="int" Nullable="false" />
+          <Property Name="od_total" Type="money" Nullable="false" />
+          <Property Name="od_paymentid" Type="int" Nullable="false" />
+          <Property Name="od_createdby" Type="int" Nullable="false" />
+          <Property Name="od_createddate" Type="datetime" Nullable="false" />
+          <Property Name="od_modifiedby" Type="int" Nullable="false" />
+          <Property Name="od_modifieddate" Type="datetime" Nullable="false" />
+          <Property Name="od_deletedby" Type="int" Nullable="false" />
+          <Property Name="od_deleteddate" Type="datetime" Nullable="false" />
+          <Property Name="od_isdeleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="order_items">
+          <Key>
+            <PropertyRef Name="oi_id" />
+          </Key>
+          <Property Name="oi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="oi_orderid" Type="int" Nullable="false" />
+          <Property Name="oi_productid" Type="int" Nullable="false" />
+          <Property Name="oi_quantity" Type="int" Nullable="false" />
+          <Property Name="oi_createdby" Type="int" Nullable="false" />
+          <Property Name="oi_createddate" Type="datetime" Nullable="false" />
+          <Property Name="oi_modifiedby" Type="int" Nullable="false" />
+          <Property Name="oi_modifieddate" Type="datetime" Nullable="false" />
+          <Property Name="oi_deletedby" Type="int" Nullable="false" />
+          <Property Name="oi_deleteddate" Type="datetime" Nullable="false" />
+          <Property Name="oi_isdeleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="payment_details">
+          <Key>
+            <PropertyRef Name="pd_id" />
+          </Key>
+          <Property Name="pd_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pd_orderid" Type="int" Nullable="false" />
+          <Property Name="pd_amount" Type="money" Nullable="false" />
+          <Property Name="pd_provider" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pd_status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pd_createdby" Type="int" Nullable="false" />
+          <Property Name="pd_createddate" Type="datetime" Nullable="false" />
+          <Property Name="pd_modifiedby" Type="int" Nullable="false" />
+          <Property Name="pd_modifieddate" Type="datetime" Nullable="false" />
+          <Property Name="pd_deletedby" Type="int" Nullable="false" />
+          <Property Name="pd_deleteddate" Type="datetime" Nullable="false" />
+          <Property Name="pd_isdeleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="p_id" />
+          </Key>
+          <Property Name="p_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="p_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="p_desc" Type="varchar(max)" Nullable="false" />
+          <Property Name="p_price" Type="money" Nullable="false" />
+          <Property Name="p_year" Type="int" Nullable="false" />
+          <Property Name="p_edition" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="p_isbn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="category_id" Type="int" Nullable="false" />
+          <Property Name="inventory_id" Type="int" Nullable="false" />
+          <Property Name="discount_id" Type="int" Nullable="false" />
+          <Property Name="author_id" Type="int" Nullable="false" />
+          <Property Name="publisher_id" Type="int" Nullable="false" />
+          <Property Name="p_createdby" Type="int" Nullable="false" />
+          <Property Name="p_createddate" Type="datetime" Nullable="false" />
+          <Property Name="p_modifiedby" Type="int" Nullable="false" />
+          <Property Name="p_modifieddate" Type="datetime" Nullable="false" />
+          <Property Name="p_deletedby" Type="int" Nullable="false" />
+          <Property Name="p_deleteddate" Type="datetime" Nullable="false" />
+          <Property Name="p_isdeleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="product_category">
+          <Key>
+            <PropertyRef Name="pc_id" />
+          </Key>
+          <Property Name="pc_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pc_mcid" Type="int" Nullable="false" />
+          <Property Name="pc_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pc_desc" Type="varchar(max)" Nullable="false" />
+          <Property Name="pc_createdby" Type="int" Nullable="false" />
+          <Property Name="pc_createddate" Type="datetime" Nullable="false" />
+          <Property Name="pc_modifiedby" Type="int" Nullable="false" />
+          <Property Name="pc_modifieddate" Type="datetime" Nullable="false" />
+          <Property Name="pc_deletedby" Type="int" Nullable="false" />
+          <Property Name="pc_deleteddate" Type="datetime" Nullable="false" />
+          <Property Name="pc_isdeleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="product_image">
+          <Key>
+            <PropertyRef Name="pim_id" />
+          </Key>
+          <Property Name="pim_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="p_image" Type="varchar(max)" Nullable="false" />
+          <Property Name="product_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="product_inventory">
+          <Key>
+            <PropertyRef Name="pi_id" />
+          </Key>
+          <Property Name="pi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pi_quantity" Type="int" Nullable="false" />
+          <Property Name="pi_createdby" Type="int" Nullable="false" />
+          <Property Name="pi_createddate" Type="datetime" Nullable="false" />
+          <Property Name="pi_modifiedby" Type="int" Nullable="false" />
+          <Property Name="pi_modifieddate" Type="datetime" Nullable="false" />
+          <Property Name="pi_deletedby" Type="int" Nullable="false" />
+          <Property Name="pi_deleteddate" Type="datetime" Nullable="false" />
+          <Property Name="pi_isdeleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="product_maincategory">
+          <Key>
+            <PropertyRef Name="mpc_id" />
+          </Key>
+          <Property Name="mpc_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mpc_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mpc_desc" Type="varchar(max)" Nullable="false" />
+          <Property Name="mpc_createdby" Type="int" Nullable="false" />
+          <Property Name="mpc_createddate" Type="datetime" Nullable="false" />
+          <Property Name="mpc_modifiedby" Type="int" Nullable="false" />
+          <Property Name="mpc_modifieddate" Type="datetime" Nullable="false" />
+          <Property Name="mpc_deletedby" Type="int" Nullable="false" />
+          <Property Name="mpc_deleteddate" Type="datetime" Nullable="false" />
+          <Property Name="mpc_isdeleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="productcategory_image">
+          <Key>
+            <PropertyRef Name="pcimg_id" />
+          </Key>
+          <Property Name="pcimg_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pcimg_image" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="maincategory_id" Type="int" Nullable="false" />
+          <Property Name="pcimg_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="publisher">
+          <Key>
+            <PropertyRef Name="pub_id" />
+          </Key>
+          <Property Name="pub_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pub_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pub_createdby" Type="int" Nullable="false" />
+          <Property Name="pub_createddate" Type="datetime" Nullable="false" />
+          <Property Name="pub_modifiedby" Type="int" Nullable="false" />
+          <Property Name="pub_modifieddate" Type="datetime" Nullable="false" />
+          <Property Name="pub_deletedby" Type="int" Nullable="false" />
+          <Property Name="pub_deleteddate" Type="datetime" Nullable="false" />
+          <Property Name="pub_isdeleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="shopping_session">
+          <Key>
+            <PropertyRef Name="ss_id" />
+          </Key>
+          <Property Name="ss_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ss_userid" Type="int" Nullable="false" />
+          <Property Name="ss_total" Type="money" Nullable="false" />
+          <Property Name="ss_createdby" Type="int" Nullable="false" />
+          <Property Name="ss_createddate" Type="datetime" Nullable="false" />
+          <Property Name="ss_modifiedby" Type="int" Nullable="false" />
+          <Property Name="ss_modifieddate" Type="datetime" Nullable="false" />
+          <Property Name="ss_deletedby" Type="int" Nullable="false" />
+          <Property Name="ss_deleteddate" Type="datetime" Nullable="false" />
+          <Property Name="ss_isdeleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubMenu_1">
+          <Key>
+            <PropertyRef Name="sm1_id" />
+          </Key>
+          <Property Name="sm1_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sm1_menuid" Type="int" Nullable="false" />
+          <Property Name="sm1_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sm1_desc" Type="varchar" MaxLength="50" />
+          <Property Name="sm1_url" Type="varchar(max)" Nullable="false" />
+          <Property Name="sm1_level" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubMenu_2">
+          <Key>
+            <PropertyRef Name="sm2_id" />
+          </Key>
+          <Property Name="sm2_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sm2_menuid" Type="int" Nullable="false" />
+          <Property Name="sm2_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sm2_desc" Type="varchar" MaxLength="50" />
+          <Property Name="sm2_url" Type="varchar(max)" Nullable="false" />
+          <Property Name="sm2_level" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="last_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mobileno" Type="int" Nullable="false" />
+          <Property Name="createdby" Type="int" Nullable="false" />
+          <Property Name="createddate" Type="datetime" Nullable="false" />
+          <Property Name="modifiedby" Type="int" Nullable="false" />
+          <Property Name="modifieddate" Type="datetime" Nullable="false" />
+          <Property Name="deletedby" Type="int" Nullable="false" />
+          <Property Name="deleteddate" Type="datetime" Nullable="false" />
+          <Property Name="isdeleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_address">
+          <Key>
+            <PropertyRef Name="ua_id" />
+          </Key>
+          <Property Name="ua_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ua_userid" Type="int" Nullable="false" />
+          <Property Name="address_line1" Type="varchar(max)" Nullable="false" />
+          <Property Name="address_line2" Type="varchar(max)" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pincode" Type="int" Nullable="false" />
+          <Property Name="country" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="telephone" Type="int" Nullable="false" />
+          <Property Name="mobile" Type="int" Nullable="false" />
+          <Property Name="ua_createdby" Type="int" Nullable="false" />
+          <Property Name="ua_createddate" Type="datetime" Nullable="false" />
+          <Property Name="ua_modifiedby" Type="int" Nullable="false" />
+          <Property Name="ua_modifieddate" Type="datetime" Nullable="false" />
+          <Property Name="ua_deletedby" Type="int" Nullable="false" />
+          <Property Name="ua_deleteddate" Type="datetime" Nullable="false" />
+          <Property Name="ua_isdeleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_payment">
+          <Key>
+            <PropertyRef Name="up_id" />
+          </Key>
+          <Property Name="up_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="up_userid" Type="int" Nullable="false" />
+          <Property Name="up_paymenttype" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="up_provider" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="up_accountno" Type="int" Nullable="false" />
+          <Property Name="up_expiry" Type="datetime" Nullable="false" />
+          <Property Name="up_createdby" Type="int" Nullable="false" />
+          <Property Name="up_createddate" Type="datetime" Nullable="false" />
+          <Property Name="up_modifiedby" Type="int" Nullable="false" />
+          <Property Name="up_modifieddate" Type="datetime" Nullable="false" />
+          <Property Name="up_deletedby" Type="int" Nullable="false" />
+          <Property Name="up_deleteddate" Type="datetime" Nullable="false" />
+          <Property Name="up_isdeleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_cart_item_product">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="cart_item" Type="Self.cart_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="p_id" />
+            </Principal>
+            <Dependent Role="cart_item">
+              <PropertyRef Name="ci_productid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cart_item_shopping_session">
+          <End Role="shopping_session" Type="Self.shopping_session" Multiplicity="1" />
+          <End Role="cart_item" Type="Self.cart_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shopping_session">
+              <PropertyRef Name="ss_id" />
+            </Principal>
+            <Dependent Role="cart_item">
+              <PropertyRef Name="ci_sessionid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserRoles_dbo_Roles_RoleId">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="UserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserRoles_dbo_user_UserId">
+          <End Role="user" Type="Self.user" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_details_payment_details">
+          <End Role="payment_details" Type="Self.payment_details" Multiplicity="1" />
+          <End Role="order_details" Type="Self.order_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="payment_details">
+              <PropertyRef Name="pd_id" />
+            </Principal>
+            <Dependent Role="order_details">
+              <PropertyRef Name="od_paymentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_details_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="order_details" Type="Self.order_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="order_details">
+              <PropertyRef Name="od_userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_items_order_details">
+          <End Role="order_details" Type="Self.order_details" Multiplicity="1" />
+          <End Role="order_items" Type="Self.order_items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order_details">
+              <PropertyRef Name="od_id" />
+            </Principal>
+            <Dependent Role="order_items">
+              <PropertyRef Name="oi_orderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_items_product">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="order_items" Type="Self.order_items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="p_id" />
+            </Principal>
+            <Dependent Role="order_items">
+              <PropertyRef Name="oi_productid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_author">
+          <End Role="author" Type="Self.author" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="author">
+              <PropertyRef Name="au_id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_category_product_maincategory">
+          <End Role="product_maincategory" Type="Self.product_maincategory" Multiplicity="1" />
+          <End Role="product_category" Type="Self.product_category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product_maincategory">
+              <PropertyRef Name="mpc_id" />
+            </Principal>
+            <Dependent Role="product_category">
+              <PropertyRef Name="pc_mcid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_discount">
+          <End Role="discount" Type="Self.discount" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="discount">
+              <PropertyRef Name="dis_id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="discount_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_product_category">
+          <End Role="product_category" Type="Self.product_category" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product_category">
+              <PropertyRef Name="pc_id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_product_inventory">
+          <End Role="product_inventory" Type="Self.product_inventory" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product_inventory">
+              <PropertyRef Name="pi_id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="inventory_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_publisher">
+          <End Role="publisher" Type="Self.publisher" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="publisher">
+              <PropertyRef Name="pub_id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="publisher_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productcategory_image_product_maincategory">
+          <End Role="product_maincategory" Type="Self.product_maincategory" Multiplicity="1" />
+          <End Role="productcategory_image" Type="Self.productcategory_image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product_maincategory">
+              <PropertyRef Name="mpc_id" />
+            </Principal>
+            <Dependent Role="productcategory_image">
+              <PropertyRef Name="maincategory_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_shopping_session_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="shopping_session" Type="Self.shopping_session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="shopping_session">
+              <PropertyRef Name="ss_userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubMenu_1_Menu">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+          <End Role="SubMenu_1" Type="Self.SubMenu_1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="m_id" />
+            </Principal>
+            <Dependent Role="SubMenu_1">
+              <PropertyRef Name="sm1_menuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubMenu_2_SubMenu_1">
+          <End Role="SubMenu_1" Type="Self.SubMenu_1" Multiplicity="1" />
+          <End Role="SubMenu_2" Type="Self.SubMenu_2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubMenu_1">
+              <PropertyRef Name="sm1_id" />
+            </Principal>
+            <Dependent Role="SubMenu_2">
+              <PropertyRef Name="sm2_menuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_address_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="user_address" Type="Self.user_address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="user_address">
+              <PropertyRef Name="ua_userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_payment_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="user_payment" Type="Self.user_payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="user_payment">
+              <PropertyRef Name="up_userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetCategoryWiseImage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetProductByCategoryId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="catid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetProductBySearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="search" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="GetProductWithImageList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="MedicalBookModelStoreContainer">
+          <EntitySet Name="author" EntityType="Self.author" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cart_item" EntityType="Self.cart_item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="discount" EntityType="Self.discount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="order_details" EntityType="Self.order_details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="order_items" EntityType="Self.order_items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="payment_details" EntityType="Self.payment_details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="product_category" EntityType="Self.product_category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="product_image" EntityType="Self.product_image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="product_inventory" EntityType="Self.product_inventory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="product_maincategory" EntityType="Self.product_maincategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="productcategory_image" EntityType="Self.productcategory_image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="publisher" EntityType="Self.publisher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="shopping_session" EntityType="Self.shopping_session" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubMenu_1" EntityType="Self.SubMenu_1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubMenu_2" EntityType="Self.SubMenu_2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_address" EntityType="Self.user_address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_payment" EntityType="Self.user_payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRoles" EntityType="Self.UserRoles" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_cart_item_product" Association="Self.FK_cart_item_product">
+            <End Role="product" EntitySet="product" />
+            <End Role="cart_item" EntitySet="cart_item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cart_item_shopping_session" Association="Self.FK_cart_item_shopping_session">
+            <End Role="shopping_session" EntitySet="shopping_session" />
+            <End Role="cart_item" EntitySet="cart_item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserRoles_dbo_Roles_RoleId" Association="Self.FK_dbo_UserRoles_dbo_Roles_RoleId">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="UserRoles" EntitySet="UserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserRoles_dbo_user_UserId" Association="Self.FK_dbo_UserRoles_dbo_user_UserId">
+            <End Role="user" EntitySet="user" />
+            <End Role="UserRoles" EntitySet="UserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_details_payment_details" Association="Self.FK_order_details_payment_details">
+            <End Role="payment_details" EntitySet="payment_details" />
+            <End Role="order_details" EntitySet="order_details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_details_user" Association="Self.FK_order_details_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="order_details" EntitySet="order_details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_items_order_details" Association="Self.FK_order_items_order_details">
+            <End Role="order_details" EntitySet="order_details" />
+            <End Role="order_items" EntitySet="order_items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_items_product" Association="Self.FK_order_items_product">
+            <End Role="product" EntitySet="product" />
+            <End Role="order_items" EntitySet="order_items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_author" Association="Self.FK_product_author">
+            <End Role="author" EntitySet="author" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_category_product_maincategory" Association="Self.FK_product_category_product_maincategory">
+            <End Role="product_maincategory" EntitySet="product_maincategory" />
+            <End Role="product_category" EntitySet="product_category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_discount" Association="Self.FK_product_discount">
+            <End Role="discount" EntitySet="discount" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_product_category" Association="Self.FK_product_product_category">
+            <End Role="product_category" EntitySet="product_category" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_product_inventory" Association="Self.FK_product_product_inventory">
+            <End Role="product_inventory" EntitySet="product_inventory" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_publisher" Association="Self.FK_product_publisher">
+            <End Role="publisher" EntitySet="publisher" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productcategory_image_product_maincategory" Association="Self.FK_productcategory_image_product_maincategory">
+            <End Role="product_maincategory" EntitySet="product_maincategory" />
+            <End Role="productcategory_image" EntitySet="productcategory_image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_shopping_session_user" Association="Self.FK_shopping_session_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="shopping_session" EntitySet="shopping_session" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubMenu_1_Menu" Association="Self.FK_SubMenu_1_Menu">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="SubMenu_1" EntitySet="SubMenu_1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubMenu_2_SubMenu_1" Association="Self.FK_SubMenu_2_SubMenu_1">
+            <End Role="SubMenu_1" EntitySet="SubMenu_1" />
+            <End Role="SubMenu_2" EntitySet="SubMenu_2" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_address_user" Association="Self.FK_user_address_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="user_address" EntitySet="user_address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_payment_user" Association="Self.FK_user_payment_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="user_payment" EntitySet="user_payment" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MedicalBookModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="author">
+          <Key>
+            <PropertyRef Name="au_id" />
+          </Key>
+          <Property Name="au_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="au_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="au_createdby" Type="Int32" Nullable="false" />
+          <Property Name="au_createddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="au_modifiedby" Type="Int32" Nullable="false" />
+          <Property Name="au_modifieddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="au_deletedby" Type="Int32" Nullable="false" />
+          <Property Name="au_deleteddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="au_isdeleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="products" Relationship="Self.FK_product_author" FromRole="author" ToRole="product" />
+        </EntityType>
+        <EntityType Name="cart_item">
+          <Key>
+            <PropertyRef Name="ci_id" />
+          </Key>
+          <Property Name="ci_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ci_sessionid" Type="Int32" Nullable="false" />
+          <Property Name="ci_productid" Type="Int32" Nullable="false" />
+          <Property Name="ci_quantity" Type="Int32" Nullable="false" />
+          <Property Name="ci_createdby" Type="Int32" Nullable="false" />
+          <Property Name="ci_createddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ci_modifiedby" Type="Int32" Nullable="false" />
+          <Property Name="ci_modifieddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ci_deletedby" Type="Int32" Nullable="false" />
+          <Property Name="ci_deleteddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ci_isdeleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="product" Relationship="Self.FK_cart_item_product" FromRole="cart_item" ToRole="product" />
+          <NavigationProperty Name="shopping_session" Relationship="Self.FK_cart_item_shopping_session" FromRole="cart_item" ToRole="shopping_session" />
+        </EntityType>
+        <EntityType Name="discount">
+          <Key>
+            <PropertyRef Name="dis_id" />
+          </Key>
+          <Property Name="dis_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dis_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dis_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dis_percentage" Type="Int32" Nullable="false" />
+          <Property Name="dis_active" Type="Int32" Nullable="false" />
+          <Property Name="dis_createdby" Type="Int32" Nullable="false" />
+          <Property Name="dis_createddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="dis_modifiedby" Type="Int32" Nullable="false" />
+          <Property Name="dis_modifieddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="dis_deletedby" Type="Int32" Nullable="false" />
+          <Property Name="dis_deleteddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="dis_isdeleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="products" Relationship="Self.FK_product_discount" FromRole="discount" ToRole="product" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="m_id" />
+          </Key>
+          <Property Name="m_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="m_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="m_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="m_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="m_level" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SubMenu_1" Relationship="Self.FK_SubMenu_1_Menu" FromRole="Menu" ToRole="SubMenu_1" />
+        </EntityType>
+        <EntityType Name="order_details">
+          <Key>
+            <PropertyRef Name="od_id" />
+          </Key>
+          <Property Name="od_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="od_userid" Type="Int32" Nullable="false" />
+          <Property Name="od_total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="od_paymentid" Type="Int32" Nullable="false" />
+          <Property Name="od_createdby" Type="Int32" Nullable="false" />
+          <Property Name="od_createddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="od_modifiedby" Type="Int32" Nullable="false" />
+          <Property Name="od_modifieddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="od_deletedby" Type="Int32" Nullable="false" />
+          <Property Name="od_deleteddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="od_isdeleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="payment_details" Relationship="Self.FK_order_details_payment_details" FromRole="order_details" ToRole="payment_details" />
+          <NavigationProperty Name="user" Relationship="Self.FK_order_details_user" FromRole="order_details" ToRole="user" />
+          <NavigationProperty Name="order_items" Relationship="Self.FK_order_items_order_details" FromRole="order_details" ToRole="order_items" />
+        </EntityType>
+        <EntityType Name="order_items">
+          <Key>
+            <PropertyRef Name="oi_id" />
+          </Key>
+          <Property Name="oi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="oi_orderid" Type="Int32" Nullable="false" />
+          <Property Name="oi_productid" Type="Int32" Nullable="false" />
+          <Property Name="oi_quantity" Type="Int32" Nullable="false" />
+          <Property Name="oi_createdby" Type="Int32" Nullable="false" />
+          <Property Name="oi_createddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="oi_modifiedby" Type="Int32" Nullable="false" />
+          <Property Name="oi_modifieddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="oi_deletedby" Type="Int32" Nullable="false" />
+          <Property Name="oi_deleteddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="oi_isdeleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="order_details" Relationship="Self.FK_order_items_order_details" FromRole="order_items" ToRole="order_details" />
+          <NavigationProperty Name="product" Relationship="Self.FK_order_items_product" FromRole="order_items" ToRole="product" />
+        </EntityType>
+        <EntityType Name="payment_details">
+          <Key>
+            <PropertyRef Name="pd_id" />
+          </Key>
+          <Property Name="pd_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pd_orderid" Type="Int32" Nullable="false" />
+          <Property Name="pd_amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="pd_provider" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pd_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pd_createdby" Type="Int32" Nullable="false" />
+          <Property Name="pd_createddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="pd_modifiedby" Type="Int32" Nullable="false" />
+          <Property Name="pd_modifieddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="pd_deletedby" Type="Int32" Nullable="false" />
+          <Property Name="pd_deleteddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="pd_isdeleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="order_details" Relationship="Self.FK_order_details_payment_details" FromRole="payment_details" ToRole="order_details" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="p_id" />
+          </Key>
+          <Property Name="p_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="p_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="p_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="p_price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="p_year" Type="Int32" Nullable="false" />
+          <Property Name="p_edition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="p_isbn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="category_id" Type="Int32" Nullable="false" />
+          <Property Name="inventory_id" Type="Int32" Nullable="false" />
+          <Property Name="discount_id" Type="Int32" Nullable="false" />
+          <Property Name="author_id" Type="Int32" Nullable="false" />
+          <Property Name="publisher_id" Type="Int32" Nullable="false" />
+          <Property Name="p_createdby" Type="Int32" Nullable="false" />
+          <Property Name="p_createddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="p_modifiedby" Type="Int32" Nullable="false" />
+          <Property Name="p_modifieddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="p_deletedby" Type="Int32" Nullable="false" />
+          <Property Name="p_deleteddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="p_isdeleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="author" Relationship="Self.FK_product_author" FromRole="product" ToRole="author" />
+          <NavigationProperty Name="cart_item" Relationship="Self.FK_cart_item_product" FromRole="product" ToRole="cart_item" />
+          <NavigationProperty Name="discount" Relationship="Self.FK_product_discount" FromRole="product" ToRole="discount" />
+          <NavigationProperty Name="order_items" Relationship="Self.FK_order_items_product" FromRole="product" ToRole="order_items" />
+          <NavigationProperty Name="product_category" Relationship="Self.FK_product_product_category" FromRole="product" ToRole="product_category" />
+          <NavigationProperty Name="product_inventory" Relationship="Self.FK_product_product_inventory" FromRole="product" ToRole="product_inventory" />
+          <NavigationProperty Name="publisher" Relationship="Self.FK_product_publisher" FromRole="product" ToRole="publisher" />
+        </EntityType>
+        <EntityType Name="product_category">
+          <Key>
+            <PropertyRef Name="pc_id" />
+          </Key>
+          <Property Name="pc_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pc_mcid" Type="Int32" Nullable="false" />
+          <Property Name="pc_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pc_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pc_createdby" Type="Int32" Nullable="false" />
+          <Property Name="pc_createddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="pc_modifiedby" Type="Int32" Nullable="false" />
+          <Property Name="pc_modifieddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="pc_deletedby" Type="Int32" Nullable="false" />
+          <Property Name="pc_deleteddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="pc_isdeleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="products" Relationship="Self.FK_product_product_category" FromRole="product_category" ToRole="product" />
+          <NavigationProperty Name="product_maincategory" Relationship="Self.FK_product_category_product_maincategory" FromRole="product_category" ToRole="product_maincategory" />
+        </EntityType>
+        <EntityType Name="product_image">
+          <Key>
+            <PropertyRef Name="pim_id" />
+          </Key>
+          <Property Name="pim_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="p_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="product_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="product_inventory">
+          <Key>
+            <PropertyRef Name="pi_id" />
+          </Key>
+          <Property Name="pi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pi_quantity" Type="Int32" Nullable="false" />
+          <Property Name="pi_createdby" Type="Int32" Nullable="false" />
+          <Property Name="pi_createddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="pi_modifiedby" Type="Int32" Nullable="false" />
+          <Property Name="pi_modifieddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="pi_deletedby" Type="Int32" Nullable="false" />
+          <Property Name="pi_deleteddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="pi_isdeleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="products" Relationship="Self.FK_product_product_inventory" FromRole="product_inventory" ToRole="product" />
+        </EntityType>
+        <EntityType Name="product_maincategory">
+          <Key>
+            <PropertyRef Name="mpc_id" />
+          </Key>
+          <Property Name="mpc_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mpc_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mpc_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mpc_createdby" Type="Int32" Nullable="false" />
+          <Property Name="mpc_createddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="mpc_modifiedby" Type="Int32" Nullable="false" />
+          <Property Name="mpc_modifieddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="mpc_deletedby" Type="Int32" Nullable="false" />
+          <Property Name="mpc_deleteddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="mpc_isdeleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="product_category" Relationship="Self.FK_product_category_product_maincategory" FromRole="product_maincategory" ToRole="product_category" />
+          <NavigationProperty Name="productcategory_image" Relationship="Self.FK_productcategory_image_product_maincategory" FromRole="product_maincategory" ToRole="productcategory_image" />
+        </EntityType>
+        <EntityType Name="productcategory_image">
+          <Key>
+            <PropertyRef Name="pcimg_id" />
+          </Key>
+          <Property Name="pcimg_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pcimg_image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="maincategory_id" Type="Int32" Nullable="false" />
+          <Property Name="pcimg_date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="product_maincategory" Relationship="Self.FK_productcategory_image_product_maincategory" FromRole="productcategory_image" ToRole="product_maincategory" />
+        </EntityType>
+        <EntityType Name="publisher">
+          <Key>
+            <PropertyRef Name="pub_id" />
+          </Key>
+          <Property Name="pub_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pub_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pub_createdby" Type="Int32" Nullable="false" />
+          <Property Name="pub_createddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="pub_modifiedby" Type="Int32" Nullable="false" />
+          <Property Name="pub_modifieddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="pub_deletedby" Type="Int32" Nullable="false" />
+          <Property Name="pub_deleteddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="pub_isdeleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="products" Relationship="Self.FK_product_publisher" FromRole="publisher" ToRole="product" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="users" Relationship="Self.UserRoles" FromRole="Roles" ToRole="user" />
+        </EntityType>
+        <EntityType Name="shopping_session">
+          <Key>
+            <PropertyRef Name="ss_id" />
+          </Key>
+          <Property Name="ss_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ss_userid" Type="Int32" Nullable="false" />
+          <Property Name="ss_total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ss_createdby" Type="Int32" Nullable="false" />
+          <Property Name="ss_createddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ss_modifiedby" Type="Int32" Nullable="false" />
+          <Property Name="ss_modifieddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ss_deletedby" Type="Int32" Nullable="false" />
+          <Property Name="ss_deleteddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ss_isdeleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="cart_item" Relationship="Self.FK_cart_item_shopping_session" FromRole="shopping_session" ToRole="cart_item" />
+          <NavigationProperty Name="user" Relationship="Self.FK_shopping_session_user" FromRole="shopping_session" ToRole="user" />
+        </EntityType>
+        <EntityType Name="SubMenu_1">
+          <Key>
+            <PropertyRef Name="sm1_id" />
+          </Key>
+          <Property Name="sm1_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sm1_menuid" Type="Int32" Nullable="false" />
+          <Property Name="sm1_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sm1_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sm1_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sm1_level" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK_SubMenu_1_Menu" FromRole="SubMenu_1" ToRole="Menu" />
+          <NavigationProperty Name="SubMenu_2" Relationship="Self.FK_SubMenu_2_SubMenu_1" FromRole="SubMenu_1" ToRole="SubMenu_2" />
+        </EntityType>
+        <EntityType Name="SubMenu_2">
+          <Key>
+            <PropertyRef Name="sm2_id" />
+          </Key>
+          <Property Name="sm2_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sm2_menuid" Type="Int32" Nullable="false" />
+          <Property Name="sm2_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sm2_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sm2_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sm2_level" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SubMenu_1" Relationship="Self.FK_SubMenu_2_SubMenu_1" FromRole="SubMenu_2" ToRole="SubMenu_1" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mobileno" Type="Int32" Nullable="false" />
+          <Property Name="createdby" Type="Int32" Nullable="false" />
+          <Property Name="createddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modifiedby" Type="Int32" Nullable="false" />
+          <Property Name="modifieddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="deletedby" Type="Int32" Nullable="false" />
+          <Property Name="deleteddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="isdeleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="order_details" Relationship="Self.FK_order_details_user" FromRole="user" ToRole="order_details" />
+          <NavigationProperty Name="shopping_session" Relationship="Self.FK_shopping_session_user" FromRole="user" ToRole="shopping_session" />
+          <NavigationProperty Name="user_address" Relationship="Self.FK_user_address_user" FromRole="user" ToRole="user_address" />
+          <NavigationProperty Name="user_payment" Relationship="Self.FK_user_payment_user" FromRole="user" ToRole="user_payment" />
+          <NavigationProperty Name="Roles" Relationship="Self.UserRoles" FromRole="user" ToRole="Roles" />
+        </EntityType>
+        <EntityType Name="user_address">
+          <Key>
+            <PropertyRef Name="ua_id" />
+          </Key>
+          <Property Name="ua_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ua_userid" Type="Int32" Nullable="false" />
+          <Property Name="address_line1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address_line2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pincode" Type="Int32" Nullable="false" />
+          <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telephone" Type="Int32" Nullable="false" />
+          <Property Name="mobile" Type="Int32" Nullable="false" />
+          <Property Name="ua_createdby" Type="Int32" Nullable="false" />
+          <Property Name="ua_createddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ua_modifiedby" Type="Int32" Nullable="false" />
+          <Property Name="ua_modifieddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ua_deletedby" Type="Int32" Nullable="false" />
+          <Property Name="ua_deleteddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ua_isdeleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="Self.FK_user_address_user" FromRole="user_address" ToRole="user" />
+        </EntityType>
+        <EntityType Name="user_payment">
+          <Key>
+            <PropertyRef Name="up_id" />
+          </Key>
+          <Property Name="up_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="up_userid" Type="Int32" Nullable="false" />
+          <Property Name="up_paymenttype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="up_provider" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="up_accountno" Type="Int32" Nullable="false" />
+          <Property Name="up_expiry" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="up_createdby" Type="Int32" Nullable="false" />
+          <Property Name="up_createddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="up_modifiedby" Type="Int32" Nullable="false" />
+          <Property Name="up_modifieddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="up_deletedby" Type="Int32" Nullable="false" />
+          <Property Name="up_deleteddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="up_isdeleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="Self.FK_user_payment_user" FromRole="user_payment" ToRole="user" />
+        </EntityType>
+        <Association Name="FK_product_author">
+          <End Role="author" Type="Self.author" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="author">
+              <PropertyRef Name="au_id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cart_item_product">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="cart_item" Type="Self.cart_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="p_id" />
+            </Principal>
+            <Dependent Role="cart_item">
+              <PropertyRef Name="ci_productid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cart_item_shopping_session">
+          <End Role="shopping_session" Type="Self.shopping_session" Multiplicity="1" />
+          <End Role="cart_item" Type="Self.cart_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shopping_session">
+              <PropertyRef Name="ss_id" />
+            </Principal>
+            <Dependent Role="cart_item">
+              <PropertyRef Name="ci_sessionid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_discount">
+          <End Role="discount" Type="Self.discount" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="discount">
+              <PropertyRef Name="dis_id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="discount_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubMenu_1_Menu">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+          <End Role="SubMenu_1" Type="Self.SubMenu_1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="m_id" />
+            </Principal>
+            <Dependent Role="SubMenu_1">
+              <PropertyRef Name="sm1_menuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_details_payment_details">
+          <End Role="payment_details" Type="Self.payment_details" Multiplicity="1" />
+          <End Role="order_details" Type="Self.order_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="payment_details">
+              <PropertyRef Name="pd_id" />
+            </Principal>
+            <Dependent Role="order_details">
+              <PropertyRef Name="od_paymentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_details_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="order_details" Type="Self.order_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="order_details">
+              <PropertyRef Name="od_userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_items_order_details">
+          <End Role="order_details" Type="Self.order_details" Multiplicity="1" />
+          <End Role="order_items" Type="Self.order_items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order_details">
+              <PropertyRef Name="od_id" />
+            </Principal>
+            <Dependent Role="order_items">
+              <PropertyRef Name="oi_orderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_items_product">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="order_items" Type="Self.order_items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="p_id" />
+            </Principal>
+            <Dependent Role="order_items">
+              <PropertyRef Name="oi_productid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_product_category">
+          <End Role="product_category" Type="Self.product_category" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product_category">
+              <PropertyRef Name="pc_id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_product_inventory">
+          <End Role="product_inventory" Type="Self.product_inventory" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product_inventory">
+              <PropertyRef Name="pi_id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="inventory_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_publisher">
+          <End Role="publisher" Type="Self.publisher" Multiplicity="1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="publisher">
+              <PropertyRef Name="pub_id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="publisher_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_product_category_product_maincategory">
+          <End Role="product_maincategory" Type="Self.product_maincategory" Multiplicity="1" />
+          <End Role="product_category" Type="Self.product_category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product_maincategory">
+              <PropertyRef Name="mpc_id" />
+            </Principal>
+            <Dependent Role="product_category">
+              <PropertyRef Name="pc_mcid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productcategory_image_product_maincategory">
+          <End Role="product_maincategory" Type="Self.product_maincategory" Multiplicity="1" />
+          <End Role="productcategory_image" Type="Self.productcategory_image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product_maincategory">
+              <PropertyRef Name="mpc_id" />
+            </Principal>
+            <Dependent Role="productcategory_image">
+              <PropertyRef Name="maincategory_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_shopping_session_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="shopping_session" Type="Self.shopping_session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="shopping_session">
+              <PropertyRef Name="ss_userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubMenu_2_SubMenu_1">
+          <End Role="SubMenu_1" Type="Self.SubMenu_1" Multiplicity="1" />
+          <End Role="SubMenu_2" Type="Self.SubMenu_2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubMenu_1">
+              <PropertyRef Name="sm1_id" />
+            </Principal>
+            <Dependent Role="SubMenu_2">
+              <PropertyRef Name="sm2_menuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_address_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="user_address" Type="Self.user_address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="user_address">
+              <PropertyRef Name="ua_userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_payment_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="user_payment" Type="Self.user_payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="user_payment">
+              <PropertyRef Name="up_userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserRoles">
+          <End Role="Roles" Type="Self.Role" Multiplicity="*" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="MedicalBookEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="authors" EntityType="Self.author" />
+          <EntitySet Name="cart_item" EntityType="Self.cart_item" />
+          <EntitySet Name="discounts" EntityType="Self.discount" />
+          <EntitySet Name="Menus" EntityType="Self.Menu" />
+          <EntitySet Name="order_details" EntityType="Self.order_details" />
+          <EntitySet Name="order_items" EntityType="Self.order_items" />
+          <EntitySet Name="payment_details" EntityType="Self.payment_details" />
+          <EntitySet Name="products" EntityType="Self.product" />
+          <EntitySet Name="product_category" EntityType="Self.product_category" />
+          <EntitySet Name="product_image" EntityType="Self.product_image" />
+          <EntitySet Name="product_inventory" EntityType="Self.product_inventory" />
+          <EntitySet Name="product_maincategory" EntityType="Self.product_maincategory" />
+          <EntitySet Name="productcategory_image" EntityType="Self.productcategory_image" />
+          <EntitySet Name="publishers" EntityType="Self.publisher" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="shopping_session" EntityType="Self.shopping_session" />
+          <EntitySet Name="SubMenu_1" EntityType="Self.SubMenu_1" />
+          <EntitySet Name="SubMenu_2" EntityType="Self.SubMenu_2" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="user_address" EntityType="Self.user_address" />
+          <EntitySet Name="user_payment" EntityType="Self.user_payment" />
+          <AssociationSet Name="FK_product_author" Association="Self.FK_product_author">
+            <End Role="author" EntitySet="authors" />
+            <End Role="product" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cart_item_product" Association="Self.FK_cart_item_product">
+            <End Role="product" EntitySet="products" />
+            <End Role="cart_item" EntitySet="cart_item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cart_item_shopping_session" Association="Self.FK_cart_item_shopping_session">
+            <End Role="shopping_session" EntitySet="shopping_session" />
+            <End Role="cart_item" EntitySet="cart_item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_discount" Association="Self.FK_product_discount">
+            <End Role="discount" EntitySet="discounts" />
+            <End Role="product" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubMenu_1_Menu" Association="Self.FK_SubMenu_1_Menu">
+            <End Role="Menu" EntitySet="Menus" />
+            <End Role="SubMenu_1" EntitySet="SubMenu_1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_details_payment_details" Association="Self.FK_order_details_payment_details">
+            <End Role="payment_details" EntitySet="payment_details" />
+            <End Role="order_details" EntitySet="order_details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_details_user" Association="Self.FK_order_details_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="order_details" EntitySet="order_details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_items_order_details" Association="Self.FK_order_items_order_details">
+            <End Role="order_details" EntitySet="order_details" />
+            <End Role="order_items" EntitySet="order_items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_items_product" Association="Self.FK_order_items_product">
+            <End Role="product" EntitySet="products" />
+            <End Role="order_items" EntitySet="order_items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_product_category" Association="Self.FK_product_product_category">
+            <End Role="product_category" EntitySet="product_category" />
+            <End Role="product" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_product_inventory" Association="Self.FK_product_product_inventory">
+            <End Role="product_inventory" EntitySet="product_inventory" />
+            <End Role="product" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_publisher" Association="Self.FK_product_publisher">
+            <End Role="publisher" EntitySet="publishers" />
+            <End Role="product" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_product_category_product_maincategory" Association="Self.FK_product_category_product_maincategory">
+            <End Role="product_maincategory" EntitySet="product_maincategory" />
+            <End Role="product_category" EntitySet="product_category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productcategory_image_product_maincategory" Association="Self.FK_productcategory_image_product_maincategory">
+            <End Role="product_maincategory" EntitySet="product_maincategory" />
+            <End Role="productcategory_image" EntitySet="productcategory_image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_shopping_session_user" Association="Self.FK_shopping_session_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="shopping_session" EntitySet="shopping_session" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubMenu_2_SubMenu_1" Association="Self.FK_SubMenu_2_SubMenu_1">
+            <End Role="SubMenu_1" EntitySet="SubMenu_1" />
+            <End Role="SubMenu_2" EntitySet="SubMenu_2" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_address_user" Association="Self.FK_user_address_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="user_address" EntitySet="user_address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_payment_user" Association="Self.FK_user_payment_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="user_payment" EntitySet="user_payment" />
+          </AssociationSet>
+          <AssociationSet Name="UserRoles" Association="Self.UserRoles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
+          <FunctionImport Name="GetCategoryWiseImage" ReturnType="Collection(MedicalBookModel.GetCategoryWiseImage_Result)" />
+          <FunctionImport Name="GetProductByCategoryId" ReturnType="Collection(MedicalBookModel.GetProductByCategoryId_Result)">
+            <Parameter Name="catid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetProductBySearch" ReturnType="Collection(MedicalBookModel.GetProductBySearch_Result)">
+            <Parameter Name="search" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetProductWithImageList" ReturnType="Collection(MedicalBookModel.GetProductWithImageList_Result)" />
+        </EntityContainer>
+        <ComplexType Name="GetCategoryWiseImage_Result">
+          <Property Type="Int32" Name="mpc_id" Nullable="false" />
+          <Property Type="String" Name="mpc_name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="mpc_desc" Nullable="false" />
+          <Property Type="Int32" Name="mpc_createdby" Nullable="false" />
+          <Property Type="DateTime" Name="mpc_createddate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="mpc_modifiedby" Nullable="false" />
+          <Property Type="DateTime" Name="mpc_modifieddate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="mpc_deletedby" Nullable="false" />
+          <Property Type="DateTime" Name="mpc_deleteddate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="mpc_isdeleted" Nullable="false" />
+          <Property Type="Int32" Name="pcimg_id" Nullable="false" />
+          <Property Type="String" Name="pcimg_image" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="maincategory_id" Nullable="false" />
+          <Property Type="DateTime" Name="pcimg_date" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GetProductByCategoryId_Result">
+          <Property Type="Int32" Name="p_id" Nullable="false" />
+          <Property Type="String" Name="p_name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="p_desc" Nullable="false" />
+          <Property Type="Decimal" Name="p_price" Nullable="false" Precision="19" />
+          <Property Type="Int32" Name="p_year" Nullable="false" />
+          <Property Type="String" Name="p_edition" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="p_isbn" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="category_id" Nullable="false" />
+          <Property Type="Int32" Name="inventory_id" Nullable="false" />
+          <Property Type="Int32" Name="discount_id" Nullable="false" />
+          <Property Type="Int32" Name="author_id" Nullable="false" />
+          <Property Type="Int32" Name="publisher_id" Nullable="false" />
+          <Property Type="Int32" Name="p_createdby" Nullable="false" />
+          <Property Type="DateTime" Name="p_createddate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="p_modifiedby" Nullable="false" />
+          <Property Type="DateTime" Name="p_modifieddate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="p_deletedby" Nullable="false" />
+          <Property Type="DateTime" Name="p_deleteddate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="p_isdeleted" Nullable="false" />
+          <Property Type="Int32" Name="pim_id" Nullable="false" />
+          <Property Type="String" Name="p_image" Nullable="false" />
+          <Property Type="Int32" Name="product_id" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetProductBySearch_Result">
+          <Property Type="Int32" Name="p_id" Nullable="false" />
+          <Property Type="String" Name="p_name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="p_desc" Nullable="false" />
+          <Property Type="Decimal" Name="p_price" Nullable="false" Precision="19" />
+          <Property Type="Int32" Name="p_year" Nullable="false" />
+          <Property Type="String" Name="p_edition" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="p_isbn" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="category_id" Nullable="false" />
+          <Property Type="Int32" Name="inventory_id" Nullable="false" />
+          <Property Type="Int32" Name="discount_id" Nullable="false" />
+          <Property Type="Int32" Name="author_id" Nullable="false" />
+          <Property Type="Int32" Name="publisher_id" Nullable="false" />
+          <Property Type="Int32" Name="p_createdby" Nullable="false" />
+          <Property Type="DateTime" Name="p_createddate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="p_modifiedby" Nullable="false" />
+          <Property Type="DateTime" Name="p_modifieddate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="p_deletedby" Nullable="false" />
+          <Property Type="DateTime" Name="p_deleteddate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="p_isdeleted" Nullable="false" />
+          <Property Type="Int32" Name="pim_id" Nullable="false" />
+          <Property Type="String" Name="p_image" Nullable="false" />
+          <Property Type="Int32" Name="product_id" Nullable="false" />
+          <Property Type="Int32" Name="au_id" Nullable="false" />
+          <Property Type="String" Name="au_name" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="au_createdby" Nullable="false" />
+          <Property Type="DateTime" Name="au_createddate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="au_modifiedby" Nullable="false" />
+          <Property Type="DateTime" Name="au_modifieddate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="au_deletedby" Nullable="false" />
+          <Property Type="DateTime" Name="au_deleteddate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="au_isdeleted" Nullable="false" />
+          <Property Type="Int32" Name="pub_id" Nullable="false" />
+          <Property Type="String" Name="pub_name" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="pub_createdby" Nullable="false" />
+          <Property Type="DateTime" Name="pub_createddate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="pub_modifiedby" Nullable="false" />
+          <Property Type="DateTime" Name="pub_modifieddate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="pub_deletedby" Nullable="false" />
+          <Property Type="DateTime" Name="pub_deleteddate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="pub_isdeleted" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetProductWithImageList_Result">
+          <Property Type="Int32" Name="p_id" Nullable="false" />
+          <Property Type="String" Name="p_name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="p_desc" Nullable="false" />
+          <Property Type="Decimal" Name="p_price" Nullable="false" Precision="19" />
+          <Property Type="Int32" Name="p_year" Nullable="false" />
+          <Property Type="String" Name="p_edition" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="p_isbn" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="category_id" Nullable="false" />
+          <Property Type="Int32" Name="inventory_id" Nullable="false" />
+          <Property Type="Int32" Name="discount_id" Nullable="false" />
+          <Property Type="Int32" Name="author_id" Nullable="false" />
+          <Property Type="Int32" Name="publisher_id" Nullable="false" />
+          <Property Type="Int32" Name="p_createdby" Nullable="false" />
+          <Property Type="DateTime" Name="p_createddate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="p_modifiedby" Nullable="false" />
+          <Property Type="DateTime" Name="p_modifieddate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="p_deletedby" Nullable="false" />
+          <Property Type="DateTime" Name="p_deleteddate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="p_isdeleted" Nullable="false" />
+          <Property Type="Int32" Name="pim_id" Nullable="false" />
+          <Property Type="String" Name="p_image" Nullable="false" />
+          <Property Type="Int32" Name="product_id" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MedicalBookModelStoreContainer" CdmEntityContainer="MedicalBookEntities">
+          <EntitySetMapping Name="authors">
+            <EntityTypeMapping TypeName="MedicalBookModel.author">
+              <MappingFragment StoreEntitySet="author">
+                <ScalarProperty Name="au_id" ColumnName="au_id" />
+                <ScalarProperty Name="au_name" ColumnName="au_name" />
+                <ScalarProperty Name="au_createdby" ColumnName="au_createdby" />
+                <ScalarProperty Name="au_createddate" ColumnName="au_createddate" />
+                <ScalarProperty Name="au_modifiedby" ColumnName="au_modifiedby" />
+                <ScalarProperty Name="au_modifieddate" ColumnName="au_modifieddate" />
+                <ScalarProperty Name="au_deletedby" ColumnName="au_deletedby" />
+                <ScalarProperty Name="au_deleteddate" ColumnName="au_deleteddate" />
+                <ScalarProperty Name="au_isdeleted" ColumnName="au_isdeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cart_item">
+            <EntityTypeMapping TypeName="MedicalBookModel.cart_item">
+              <MappingFragment StoreEntitySet="cart_item">
+                <ScalarProperty Name="ci_id" ColumnName="ci_id" />
+                <ScalarProperty Name="ci_sessionid" ColumnName="ci_sessionid" />
+                <ScalarProperty Name="ci_productid" ColumnName="ci_productid" />
+                <ScalarProperty Name="ci_quantity" ColumnName="ci_quantity" />
+                <ScalarProperty Name="ci_createdby" ColumnName="ci_createdby" />
+                <ScalarProperty Name="ci_createddate" ColumnName="ci_createddate" />
+                <ScalarProperty Name="ci_modifiedby" ColumnName="ci_modifiedby" />
+                <ScalarProperty Name="ci_modifieddate" ColumnName="ci_modifieddate" />
+                <ScalarProperty Name="ci_deletedby" ColumnName="ci_deletedby" />
+                <ScalarProperty Name="ci_deleteddate" ColumnName="ci_deleteddate" />
+                <ScalarProperty Name="ci_isdeleted" ColumnName="ci_isdeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="discounts">
+            <EntityTypeMapping TypeName="MedicalBookModel.discount">
+              <MappingFragment StoreEntitySet="discount">
+                <ScalarProperty Name="dis_id" ColumnName="dis_id" />
+                <ScalarProperty Name="dis_name" ColumnName="dis_name" />
+                <ScalarProperty Name="dis_desc" ColumnName="dis_desc" />
+                <ScalarProperty Name="dis_percentage" ColumnName="dis_percentage" />
+                <ScalarProperty Name="dis_active" ColumnName="dis_active" />
+                <ScalarProperty Name="dis_createdby" ColumnName="dis_createdby" />
+                <ScalarProperty Name="dis_createddate" ColumnName="dis_createddate" />
+                <ScalarProperty Name="dis_modifiedby" ColumnName="dis_modifiedby" />
+                <ScalarProperty Name="dis_modifieddate" ColumnName="dis_modifieddate" />
+                <ScalarProperty Name="dis_deletedby" ColumnName="dis_deletedby" />
+                <ScalarProperty Name="dis_deleteddate" ColumnName="dis_deleteddate" />
+                <ScalarProperty Name="dis_isdeleted" ColumnName="dis_isdeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="MedicalBookModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="m_id" ColumnName="m_id" />
+                <ScalarProperty Name="m_name" ColumnName="m_name" />
+                <ScalarProperty Name="m_desc" ColumnName="m_desc" />
+                <ScalarProperty Name="m_url" ColumnName="m_url" />
+                <ScalarProperty Name="m_level" ColumnName="m_level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="order_details">
+            <EntityTypeMapping TypeName="MedicalBookModel.order_details">
+              <MappingFragment StoreEntitySet="order_details">
+                <ScalarProperty Name="od_id" ColumnName="od_id" />
+                <ScalarProperty Name="od_userid" ColumnName="od_userid" />
+                <ScalarProperty Name="od_total" ColumnName="od_total" />
+                <ScalarProperty Name="od_paymentid" ColumnName="od_paymentid" />
+                <ScalarProperty Name="od_createdby" ColumnName="od_createdby" />
+                <ScalarProperty Name="od_createddate" ColumnName="od_createddate" />
+                <ScalarProperty Name="od_modifiedby" ColumnName="od_modifiedby" />
+                <ScalarProperty Name="od_modifieddate" ColumnName="od_modifieddate" />
+                <ScalarProperty Name="od_deletedby" ColumnName="od_deletedby" />
+                <ScalarProperty Name="od_deleteddate" ColumnName="od_deleteddate" />
+                <ScalarProperty Name="od_isdeleted" ColumnName="od_isdeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="order_items">
+            <EntityTypeMapping TypeName="MedicalBookModel.order_items">
+              <MappingFragment StoreEntitySet="order_items">
+                <ScalarProperty Name="oi_id" ColumnName="oi_id" />
+                <ScalarProperty Name="oi_orderid" ColumnName="oi_orderid" />
+                <ScalarProperty Name="oi_productid" ColumnName="oi_productid" />
+                <ScalarProperty Name="oi_quantity" ColumnName="oi_quantity" />
+                <ScalarProperty Name="oi_createdby" ColumnName="oi_createdby" />
+                <ScalarProperty Name="oi_createddate" ColumnName="oi_createddate" />
+                <ScalarProperty Name="oi_modifiedby" ColumnName="oi_modifiedby" />
+                <ScalarProperty Name="oi_modifieddate" ColumnName="oi_modifieddate" />
+                <ScalarProperty Name="oi_deletedby" ColumnName="oi_deletedby" />
+                <ScalarProperty Name="oi_deleteddate" ColumnName="oi_deleteddate" />
+                <ScalarProperty Name="oi_isdeleted" ColumnName="oi_isdeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="payment_details">
+            <EntityTypeMapping TypeName="MedicalBookModel.payment_details">
+              <MappingFragment StoreEntitySet="payment_details">
+                <ScalarProperty Name="pd_id" ColumnName="pd_id" />
+                <ScalarProperty Name="pd_orderid" ColumnName="pd_orderid" />
+                <ScalarProperty Name="pd_amount" ColumnName="pd_amount" />
+                <ScalarProperty Name="pd_provider" ColumnName="pd_provider" />
+                <ScalarProperty Name="pd_status" ColumnName="pd_status" />
+                <ScalarProperty Name="pd_createdby" ColumnName="pd_createdby" />
+                <ScalarProperty Name="pd_createddate" ColumnName="pd_createddate" />
+                <ScalarProperty Name="pd_modifiedby" ColumnName="pd_modifiedby" />
+                <ScalarProperty Name="pd_modifieddate" ColumnName="pd_modifieddate" />
+                <ScalarProperty Name="pd_deletedby" ColumnName="pd_deletedby" />
+                <ScalarProperty Name="pd_deleteddate" ColumnName="pd_deleteddate" />
+                <ScalarProperty Name="pd_isdeleted" ColumnName="pd_isdeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="MedicalBookModel.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="p_id" ColumnName="p_id" />
+                <ScalarProperty Name="p_name" ColumnName="p_name" />
+                <ScalarProperty Name="p_desc" ColumnName="p_desc" />
+                <ScalarProperty Name="p_price" ColumnName="p_price" />
+                <ScalarProperty Name="p_year" ColumnName="p_year" />
+                <ScalarProperty Name="p_edition" ColumnName="p_edition" />
+                <ScalarProperty Name="p_isbn" ColumnName="p_isbn" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="inventory_id" ColumnName="inventory_id" />
+                <ScalarProperty Name="discount_id" ColumnName="discount_id" />
+                <ScalarProperty Name="author_id" ColumnName="author_id" />
+                <ScalarProperty Name="publisher_id" ColumnName="publisher_id" />
+                <ScalarProperty Name="p_createdby" ColumnName="p_createdby" />
+                <ScalarProperty Name="p_createddate" ColumnName="p_createddate" />
+                <ScalarProperty Name="p_modifiedby" ColumnName="p_modifiedby" />
+                <ScalarProperty Name="p_modifieddate" ColumnName="p_modifieddate" />
+                <ScalarProperty Name="p_deletedby" ColumnName="p_deletedby" />
+                <ScalarProperty Name="p_deleteddate" ColumnName="p_deleteddate" />
+                <ScalarProperty Name="p_isdeleted" ColumnName="p_isdeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="product_category">
+            <EntityTypeMapping TypeName="MedicalBookModel.product_category">
+              <MappingFragment StoreEntitySet="product_category">
+                <ScalarProperty Name="pc_id" ColumnName="pc_id" />
+                <ScalarProperty Name="pc_mcid" ColumnName="pc_mcid" />
+                <ScalarProperty Name="pc_name" ColumnName="pc_name" />
+                <ScalarProperty Name="pc_desc" ColumnName="pc_desc" />
+                <ScalarProperty Name="pc_createdby" ColumnName="pc_createdby" />
+                <ScalarProperty Name="pc_createddate" ColumnName="pc_createddate" />
+                <ScalarProperty Name="pc_modifiedby" ColumnName="pc_modifiedby" />
+                <ScalarProperty Name="pc_modifieddate" ColumnName="pc_modifieddate" />
+                <ScalarProperty Name="pc_deletedby" ColumnName="pc_deletedby" />
+                <ScalarProperty Name="pc_deleteddate" ColumnName="pc_deleteddate" />
+                <ScalarProperty Name="pc_isdeleted" ColumnName="pc_isdeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="product_image">
+            <EntityTypeMapping TypeName="MedicalBookModel.product_image">
+              <MappingFragment StoreEntitySet="product_image">
+                <ScalarProperty Name="pim_id" ColumnName="pim_id" />
+                <ScalarProperty Name="p_image" ColumnName="p_image" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="product_inventory">
+            <EntityTypeMapping TypeName="MedicalBookModel.product_inventory">
+              <MappingFragment StoreEntitySet="product_inventory">
+                <ScalarProperty Name="pi_id" ColumnName="pi_id" />
+                <ScalarProperty Name="pi_quantity" ColumnName="pi_quantity" />
+                <ScalarProperty Name="pi_createdby" ColumnName="pi_createdby" />
+                <ScalarProperty Name="pi_createddate" ColumnName="pi_createddate" />
+                <ScalarProperty Name="pi_modifiedby" ColumnName="pi_modifiedby" />
+                <ScalarProperty Name="pi_modifieddate" ColumnName="pi_modifieddate" />
+                <ScalarProperty Name="pi_deletedby" ColumnName="pi_deletedby" />
+                <ScalarProperty Name="pi_deleteddate" ColumnName="pi_deleteddate" />
+                <ScalarProperty Name="pi_isdeleted" ColumnName="pi_isdeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="product_maincategory">
+            <EntityTypeMapping TypeName="MedicalBookModel.product_maincategory">
+              <MappingFragment StoreEntitySet="product_maincategory">
+                <ScalarProperty Name="mpc_id" ColumnName="mpc_id" />
+                <ScalarProperty Name="mpc_name" ColumnName="mpc_name" />
+                <ScalarProperty Name="mpc_desc" ColumnName="mpc_desc" />
+                <ScalarProperty Name="mpc_createdby" ColumnName="mpc_createdby" />
+                <ScalarProperty Name="mpc_createddate" ColumnName="mpc_createddate" />
+                <ScalarProperty Name="mpc_modifiedby" ColumnName="mpc_modifiedby" />
+                <ScalarProperty Name="mpc_modifieddate" ColumnName="mpc_modifieddate" />
+                <ScalarProperty Name="mpc_deletedby" ColumnName="mpc_deletedby" />
+                <ScalarProperty Name="mpc_deleteddate" ColumnName="mpc_deleteddate" />
+                <ScalarProperty Name="mpc_isdeleted" ColumnName="mpc_isdeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="productcategory_image">
+            <EntityTypeMapping TypeName="MedicalBookModel.productcategory_image">
+              <MappingFragment StoreEntitySet="productcategory_image">
+                <ScalarProperty Name="pcimg_id" ColumnName="pcimg_id" />
+                <ScalarProperty Name="pcimg_image" ColumnName="pcimg_image" />
+                <ScalarProperty Name="maincategory_id" ColumnName="maincategory_id" />
+                <ScalarProperty Name="pcimg_date" ColumnName="pcimg_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="publishers">
+            <EntityTypeMapping TypeName="MedicalBookModel.publisher">
+              <MappingFragment StoreEntitySet="publisher">
+                <ScalarProperty Name="pub_id" ColumnName="pub_id" />
+                <ScalarProperty Name="pub_name" ColumnName="pub_name" />
+                <ScalarProperty Name="pub_createdby" ColumnName="pub_createdby" />
+                <ScalarProperty Name="pub_createddate" ColumnName="pub_createddate" />
+                <ScalarProperty Name="pub_modifiedby" ColumnName="pub_modifiedby" />
+                <ScalarProperty Name="pub_modifieddate" ColumnName="pub_modifieddate" />
+                <ScalarProperty Name="pub_deletedby" ColumnName="pub_deletedby" />
+                <ScalarProperty Name="pub_deleteddate" ColumnName="pub_deleteddate" />
+                <ScalarProperty Name="pub_isdeleted" ColumnName="pub_isdeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="MedicalBookModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="shopping_session">
+            <EntityTypeMapping TypeName="MedicalBookModel.shopping_session">
+              <MappingFragment StoreEntitySet="shopping_session">
+                <ScalarProperty Name="ss_id" ColumnName="ss_id" />
+                <ScalarProperty Name="ss_userid" ColumnName="ss_userid" />
+                <ScalarProperty Name="ss_total" ColumnName="ss_total" />
+                <ScalarProperty Name="ss_createdby" ColumnName="ss_createdby" />
+                <ScalarProperty Name="ss_createddate" ColumnName="ss_createddate" />
+                <ScalarProperty Name="ss_modifiedby" ColumnName="ss_modifiedby" />
+                <ScalarProperty Name="ss_modifieddate" ColumnName="ss_modifieddate" />
+                <ScalarProperty Name="ss_deletedby" ColumnName="ss_deletedby" />
+                <ScalarProperty Name="ss_deleteddate" ColumnName="ss_deleteddate" />
+                <ScalarProperty Name="ss_isdeleted" ColumnName="ss_isdeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubMenu_1">
+            <EntityTypeMapping TypeName="MedicalBookModel.SubMenu_1">
+              <MappingFragment StoreEntitySet="SubMenu_1">
+                <ScalarProperty Name="sm1_id" ColumnName="sm1_id" />
+                <ScalarProperty Name="sm1_menuid" ColumnName="sm1_menuid" />
+                <ScalarProperty Name="sm1_name" ColumnName="sm1_name" />
+                <ScalarProperty Name="sm1_desc" ColumnName="sm1_desc" />
+                <ScalarProperty Name="sm1_url" ColumnName="sm1_url" />
+                <ScalarProperty Name="sm1_level" ColumnName="sm1_level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubMenu_2">
+            <EntityTypeMapping TypeName="MedicalBookModel.SubMenu_2">
+              <MappingFragment StoreEntitySet="SubMenu_2">
+                <ScalarProperty Name="sm2_id" ColumnName="sm2_id" />
+                <ScalarProperty Name="sm2_menuid" ColumnName="sm2_menuid" />
+                <ScalarProperty Name="sm2_name" ColumnName="sm2_name" />
+                <ScalarProperty Name="sm2_desc" ColumnName="sm2_desc" />
+                <ScalarProperty Name="sm2_url" ColumnName="sm2_url" />
+                <ScalarProperty Name="sm2_level" ColumnName="sm2_level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="MedicalBookModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="mobileno" ColumnName="mobileno" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createddate" ColumnName="createddate" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="deletedby" ColumnName="deletedby" />
+                <ScalarProperty Name="deleteddate" ColumnName="deleteddate" />
+                <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_address">
+            <EntityTypeMapping TypeName="MedicalBookModel.user_address">
+              <MappingFragment StoreEntitySet="user_address">
+                <ScalarProperty Name="ua_id" ColumnName="ua_id" />
+                <ScalarProperty Name="ua_userid" ColumnName="ua_userid" />
+                <ScalarProperty Name="address_line1" ColumnName="address_line1" />
+                <ScalarProperty Name="address_line2" ColumnName="address_line2" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="pincode" ColumnName="pincode" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="ua_createdby" ColumnName="ua_createdby" />
+                <ScalarProperty Name="ua_createddate" ColumnName="ua_createddate" />
+                <ScalarProperty Name="ua_modifiedby" ColumnName="ua_modifiedby" />
+                <ScalarProperty Name="ua_modifieddate" ColumnName="ua_modifieddate" />
+                <ScalarProperty Name="ua_deletedby" ColumnName="ua_deletedby" />
+                <ScalarProperty Name="ua_deleteddate" ColumnName="ua_deleteddate" />
+                <ScalarProperty Name="ua_isdeleted" ColumnName="ua_isdeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_payment">
+            <EntityTypeMapping TypeName="MedicalBookModel.user_payment">
+              <MappingFragment StoreEntitySet="user_payment">
+                <ScalarProperty Name="up_id" ColumnName="up_id" />
+                <ScalarProperty Name="up_userid" ColumnName="up_userid" />
+                <ScalarProperty Name="up_paymenttype" ColumnName="up_paymenttype" />
+                <ScalarProperty Name="up_provider" ColumnName="up_provider" />
+                <ScalarProperty Name="up_accountno" ColumnName="up_accountno" />
+                <ScalarProperty Name="up_expiry" ColumnName="up_expiry" />
+                <ScalarProperty Name="up_createdby" ColumnName="up_createdby" />
+                <ScalarProperty Name="up_createddate" ColumnName="up_createddate" />
+                <ScalarProperty Name="up_modifiedby" ColumnName="up_modifiedby" />
+                <ScalarProperty Name="up_modifieddate" ColumnName="up_modifieddate" />
+                <ScalarProperty Name="up_deletedby" ColumnName="up_deletedby" />
+                <ScalarProperty Name="up_deleteddate" ColumnName="up_deleteddate" />
+                <ScalarProperty Name="up_isdeleted" ColumnName="up_isdeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="UserRoles" TypeName="MedicalBookModel.UserRoles" StoreEntitySet="UserRoles">
+            <EndProperty Name="Roles">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="user">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="GetCategoryWiseImage" FunctionName="MedicalBookModel.Store.GetCategoryWiseImage">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedicalBookModel.GetCategoryWiseImage_Result">
+                <ScalarProperty Name="mpc_id" ColumnName="mpc_id" />
+                <ScalarProperty Name="mpc_name" ColumnName="mpc_name" />
+                <ScalarProperty Name="mpc_desc" ColumnName="mpc_desc" />
+                <ScalarProperty Name="mpc_createdby" ColumnName="mpc_createdby" />
+                <ScalarProperty Name="mpc_createddate" ColumnName="mpc_createddate" />
+                <ScalarProperty Name="mpc_modifiedby" ColumnName="mpc_modifiedby" />
+                <ScalarProperty Name="mpc_modifieddate" ColumnName="mpc_modifieddate" />
+                <ScalarProperty Name="mpc_deletedby" ColumnName="mpc_deletedby" />
+                <ScalarProperty Name="mpc_deleteddate" ColumnName="mpc_deleteddate" />
+                <ScalarProperty Name="mpc_isdeleted" ColumnName="mpc_isdeleted" />
+                <ScalarProperty Name="pcimg_id" ColumnName="pcimg_id" />
+                <ScalarProperty Name="pcimg_image" ColumnName="pcimg_image" />
+                <ScalarProperty Name="maincategory_id" ColumnName="maincategory_id" />
+                <ScalarProperty Name="pcimg_date" ColumnName="pcimg_date" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetProductByCategoryId" FunctionName="MedicalBookModel.Store.GetProductByCategoryId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedicalBookModel.GetProductByCategoryId_Result">
+                <ScalarProperty Name="p_id" ColumnName="p_id" />
+                <ScalarProperty Name="p_name" ColumnName="p_name" />
+                <ScalarProperty Name="p_desc" ColumnName="p_desc" />
+                <ScalarProperty Name="p_price" ColumnName="p_price" />
+                <ScalarProperty Name="p_year" ColumnName="p_year" />
+                <ScalarProperty Name="p_edition" ColumnName="p_edition" />
+                <ScalarProperty Name="p_isbn" ColumnName="p_isbn" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="inventory_id" ColumnName="inventory_id" />
+                <ScalarProperty Name="discount_id" ColumnName="discount_id" />
+                <ScalarProperty Name="author_id" ColumnName="author_id" />
+                <ScalarProperty Name="publisher_id" ColumnName="publisher_id" />
+                <ScalarProperty Name="p_createdby" ColumnName="p_createdby" />
+                <ScalarProperty Name="p_createddate" ColumnName="p_createddate" />
+                <ScalarProperty Name="p_modifiedby" ColumnName="p_modifiedby" />
+                <ScalarProperty Name="p_modifieddate" ColumnName="p_modifieddate" />
+                <ScalarProperty Name="p_deletedby" ColumnName="p_deletedby" />
+                <ScalarProperty Name="p_deleteddate" ColumnName="p_deleteddate" />
+                <ScalarProperty Name="p_isdeleted" ColumnName="p_isdeleted" />
+                <ScalarProperty Name="pim_id" ColumnName="pim_id" />
+                <ScalarProperty Name="p_image" ColumnName="p_image" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetProductBySearch" FunctionName="MedicalBookModel.Store.GetProductBySearch">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedicalBookModel.GetProductBySearch_Result">
+                <ScalarProperty Name="p_id" ColumnName="p_id" />
+                <ScalarProperty Name="p_name" ColumnName="p_name" />
+                <ScalarProperty Name="p_desc" ColumnName="p_desc" />
+                <ScalarProperty Name="p_price" ColumnName="p_price" />
+                <ScalarProperty Name="p_year" ColumnName="p_year" />
+                <ScalarProperty Name="p_edition" ColumnName="p_edition" />
+                <ScalarProperty Name="p_isbn" ColumnName="p_isbn" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="inventory_id" ColumnName="inventory_id" />
+                <ScalarProperty Name="discount_id" ColumnName="discount_id" />
+                <ScalarProperty Name="author_id" ColumnName="author_id" />
+                <ScalarProperty Name="publisher_id" ColumnName="publisher_id" />
+                <ScalarProperty Name="p_createdby" ColumnName="p_createdby" />
+                <ScalarProperty Name="p_createddate" ColumnName="p_createddate" />
+                <ScalarProperty Name="p_modifiedby" ColumnName="p_modifiedby" />
+                <ScalarProperty Name="p_modifieddate" ColumnName="p_modifieddate" />
+                <ScalarProperty Name="p_deletedby" ColumnName="p_deletedby" />
+                <ScalarProperty Name="p_deleteddate" ColumnName="p_deleteddate" />
+                <ScalarProperty Name="p_isdeleted" ColumnName="p_isdeleted" />
+                <ScalarProperty Name="pim_id" ColumnName="pim_id" />
+                <ScalarProperty Name="p_image" ColumnName="p_image" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="au_id" ColumnName="au_id" />
+                <ScalarProperty Name="au_name" ColumnName="au_name" />
+                <ScalarProperty Name="au_createdby" ColumnName="au_createdby" />
+                <ScalarProperty Name="au_createddate" ColumnName="au_createddate" />
+                <ScalarProperty Name="au_modifiedby" ColumnName="au_modifiedby" />
+                <ScalarProperty Name="au_modifieddate" ColumnName="au_modifieddate" />
+                <ScalarProperty Name="au_deletedby" ColumnName="au_deletedby" />
+                <ScalarProperty Name="au_deleteddate" ColumnName="au_deleteddate" />
+                <ScalarProperty Name="au_isdeleted" ColumnName="au_isdeleted" />
+                <ScalarProperty Name="pub_id" ColumnName="pub_id" />
+                <ScalarProperty Name="pub_name" ColumnName="pub_name" />
+                <ScalarProperty Name="pub_createdby" ColumnName="pub_createdby" />
+                <ScalarProperty Name="pub_createddate" ColumnName="pub_createddate" />
+                <ScalarProperty Name="pub_modifiedby" ColumnName="pub_modifiedby" />
+                <ScalarProperty Name="pub_modifieddate" ColumnName="pub_modifieddate" />
+                <ScalarProperty Name="pub_deletedby" ColumnName="pub_deletedby" />
+                <ScalarProperty Name="pub_deleteddate" ColumnName="pub_deleteddate" />
+                <ScalarProperty Name="pub_isdeleted" ColumnName="pub_isdeleted" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetProductWithImageList" FunctionName="MedicalBookModel.Store.GetProductWithImageList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedicalBookModel.GetProductWithImageList_Result">
+                <ScalarProperty Name="p_id" ColumnName="p_id" />
+                <ScalarProperty Name="p_name" ColumnName="p_name" />
+                <ScalarProperty Name="p_desc" ColumnName="p_desc" />
+                <ScalarProperty Name="p_price" ColumnName="p_price" />
+                <ScalarProperty Name="p_year" ColumnName="p_year" />
+                <ScalarProperty Name="p_edition" ColumnName="p_edition" />
+                <ScalarProperty Name="p_isbn" ColumnName="p_isbn" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="inventory_id" ColumnName="inventory_id" />
+                <ScalarProperty Name="discount_id" ColumnName="discount_id" />
+                <ScalarProperty Name="author_id" ColumnName="author_id" />
+                <ScalarProperty Name="publisher_id" ColumnName="publisher_id" />
+                <ScalarProperty Name="p_createdby" ColumnName="p_createdby" />
+                <ScalarProperty Name="p_createddate" ColumnName="p_createddate" />
+                <ScalarProperty Name="p_modifiedby" ColumnName="p_modifiedby" />
+                <ScalarProperty Name="p_modifieddate" ColumnName="p_modifieddate" />
+                <ScalarProperty Name="p_deletedby" ColumnName="p_deletedby" />
+                <ScalarProperty Name="p_deleteddate" ColumnName="p_deleteddate" />
+                <ScalarProperty Name="p_isdeleted" ColumnName="p_isdeleted" />
+                <ScalarProperty Name="pim_id" ColumnName="pim_id" />
+                <ScalarProperty Name="p_image" ColumnName="p_image" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

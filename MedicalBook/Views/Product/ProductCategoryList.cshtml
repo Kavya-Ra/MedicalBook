@@ -1,0 +1,81 @@
+﻿@model IEnumerable<MedicalBook.DbContext.product_category>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.pc_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pc_desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pc_createdby)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pc_createddate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pc_modifiedby)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pc_modifieddate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pc_deletedby)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pc_deleteddate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pc_isdeleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.product_maincategory.mpc_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.pc_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pc_desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pc_createdby)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pc_createddate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pc_modifiedby)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pc_modifieddate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pc_deletedby)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pc_deleteddate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pc_isdeleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.product_maincategory.mpc_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.pc_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.pc_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.pc_id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,34 @@
+﻿
+<div class="form-horizontal">
+    <h4>Product List</h4>
+    <hr />
+    <div class="form-group">
+
+        <input type="text" class="form-control" id="search" placeholder="Search">
+
+    </div>
+    <div id="list-search" class="list-group">
+        
+    </div>
+
+</div>
+
+
+@section Scripts {
+    <script language="javascript">
+        search.oninput = function () {
+            var recordId = search.value;
+            $.getJSON("/Product/ActionSearch",
+                {
+                    search: recordId
+                },
+                function (data) {
+                    $("#list-search").empty();
+                    $.each(data, function (i) {
+                        var optionhtml = '<a class="list-group-item list-group-item-action" href="#list-item-4">' + data[i].p_name + '</a>';
+                        $("#list-search").append(optionhtml);
+                    });
+                });
+        };
+    </script>
+}
