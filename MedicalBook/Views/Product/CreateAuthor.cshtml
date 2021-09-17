@@ -1,9 +1,10 @@
 ﻿@model MedicalBook.DbContext.author
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+    @Html.HiddenFor(model => model.au_id)
+
     <div class="form-horizontal">
         <h4>author</h4>
         <hr />

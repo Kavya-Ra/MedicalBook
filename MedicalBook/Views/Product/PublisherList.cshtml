@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<MedicalBook.DbContext.publisher>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "CreatePublisher")
 </p>
 <table class="table">
     <tr>
@@ -59,9 +59,9 @@
             @Html.DisplayFor(modelItem => item.pub_isdeleted)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.pub_id }) |
+            @Html.ActionLink("Edit", "CreatePublisher", new { id=item.pub_id }) |
             @Html.ActionLink("Details", "Details", new { id=item.pub_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.pub_id })
+            @Html.ActionLink("Delete", "DeletePublisher", new { id=item.pub_id })
         </td>
     </tr>
 }

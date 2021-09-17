@@ -1,9 +1,10 @@
 ﻿@model MedicalBook.DbContext.discount
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+    @Html.HiddenFor(model => model.dis_id)
+
     <div class="form-horizontal">
         <h4>discount</h4>
         <hr />
@@ -41,5 +42,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "ProductDiscountList")
 </div>

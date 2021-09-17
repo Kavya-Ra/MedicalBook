@@ -9,7 +9,7 @@ namespace MedicalBook.ViewModel
 {
     public class ProductViewModel
     {
-        public int p_id { get; set; }
+        public int? p_id { get; set; }
         [Required]
         [Display(Name = "Product Name")]
         public string p_name { get; set; }

@@ -71,9 +71,9 @@
             @Html.DisplayFor(modelItem => item.product_maincategory.mpc_name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.pc_id }) |
+            @Html.ActionLink("Edit", "CreateProductCategory", new { id=item.pc_id }) |
             @Html.ActionLink("Details", "Details", new { id=item.pc_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.pc_id })
+            @Html.ActionLink("Delete", "DeleteProductCategory", new { id=item.pc_id })
         </td>
     </tr>
 }

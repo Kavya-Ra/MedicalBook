@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<MedicalBook.ViewModel.ProductViewModel>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "CreateProduct")
 </p>
 <table class="table">
     <tr>
@@ -90,9 +90,9 @@
 
     </td> 
     <td>
-        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Edit", "CreateProduct", new {id=item.p_id }) |
         @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        @Html.ActionLink("Delete", "DeleteProduct", new { id = item.p_id })
     </td>
 </tr>
 }

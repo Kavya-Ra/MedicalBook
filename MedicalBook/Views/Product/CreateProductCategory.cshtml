@@ -1,9 +1,10 @@
-﻿@model MedicalBook.DbContext.product_category
+﻿@model MedicalBook.ViewModel.ProductCategoryViewModel
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+    @Html.HiddenFor(model => model.pc_id)
+
     <div class="form-horizontal">
         <h4>product_category</h4>
         <hr />
@@ -41,5 +42,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "ProductCategoryList")
 </div>

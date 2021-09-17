@@ -1,9 +1,10 @@
 ﻿@model MedicalBook.DbContext.publisher
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+    @Html.HiddenFor(model => model.pub_id)
+
     <div class="form-horizontal">
         <h4>publisher</h4>
         <hr />
@@ -14,7 +15,7 @@
                 @Html.EditorFor(model => model.pub_name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.pub_name, "", new { @class = "text-danger" })
             </div>
-        </div>    
+        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

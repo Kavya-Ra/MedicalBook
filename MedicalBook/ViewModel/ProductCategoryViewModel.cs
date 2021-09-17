@@ -7,7 +7,7 @@ namespace MedicalBook.ViewModel
 {
     public class ProductCategoryViewModel
     {
-        public int pc_id { get; set; }
+        public int? pc_id { get; set; }
         public int pc_mcid { get; set; }
         public string pc_name { get; set; }
         public string pc_desc { get; set; }

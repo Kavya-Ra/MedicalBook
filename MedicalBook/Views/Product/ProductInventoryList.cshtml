@@ -59,9 +59,9 @@
             @Html.DisplayFor(modelItem => item.pi_isdeleted)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.pi_id }) |
+            @Html.ActionLink("Edit", "ProductInventory", new { id=item.pi_id }) |
             @Html.ActionLink("Details", "Details", new { id=item.pi_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.pi_id })
+            @Html.ActionLink("Delete", "DeleteProductInventory", new { id=item.pi_id })
         </td>
     </tr>
 }
